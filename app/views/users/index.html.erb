@@ -10,9 +10,11 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>Id</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Email</th>
+      <th class="d-none d-sm-table-cell">Phone</th>
       <th class="d-none d-sm-table-cell">Role</th>
       <th></th>
     </tr>
@@ -21,9 +23,12 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+
+        <td><%= user.id %></td>
         <td><%= link_to user.first_name, user %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
+        <td class="d-none d-sm-table-cell"><%= user.phone %></td>
         <td class="d-none d-sm-table-cell"><%= user.role %></td>
         <td>
         <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary btn-sm" %>

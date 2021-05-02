@@ -4,6 +4,7 @@
 
   <thead>
     <tr>
+      <th>Id</th>
       <th>Document</th>
       <th class="d-none d-sm-table-cell">Attachment</th>
       <th>User</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @user_docs.each do |user_doc| %>
       <tr>
+        <td><%= user_doc.id %></td>
         <td><%= link_to user_doc.doc_type, user_doc %></td>
         <td class="d-none d-sm-table-cell"><%= link_to "Download", rails_blob_url(user_doc.attachment, disposition: "attachment") if user_doc.attachment.attached? %></td>
         <td><%= user_doc.user.full_name %></td>

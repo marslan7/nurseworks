@@ -4,7 +4,8 @@ class SupportRequestsController < ApplicationController
 
   # GET /support_requests or /support_requests.json
   def index
-    @support_requests = SupportRequest.accessible_by(current_ability).includes(:user, :supporting_doc_blob)
+    @support_requests = SupportRequest.accessible_by(current_ability)
+    @support_requests = @support_requests.order("id desc").includes(:user, :supporting_doc_blob)
   end
 
   def search

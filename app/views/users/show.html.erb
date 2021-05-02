@@ -33,6 +33,15 @@
     </td>
 </tr>
 
+<tr>
+  <td>
+    <strong>Phone:</strong>
+  </td>
+  <td>
+      <%= @user.phone %>
+    </td>
+</tr>
+
 
 <tr>
   <td>
@@ -69,12 +78,16 @@
   <%= link_to 'Back', users_path, class:"btn btn-primary" %>
 </div>
 
-<div>
-  <% @support_requests = @user.support_requests.includes(:user, :supporting_doc_blob).limit(10).order("id desc") %>
-  <%= render "/support_requests/index" %>
-</div>
+<% if current_user.role == 'Admin' %>
 
-<div>
-  <% @user_docs = @user.user_docs.includes(:user, :attachment_blob).limit(10).order("id desc") %>
-  <%= render "/user_docs/index" %>
-</div>
+  <div>
+    <% @support_requests = @user.support_requests.includes(:user, :supporting_doc_blob).limit(10).order("id desc") %>
+    <%= render "/support_requests/index" %>
+  </div>
+
+  <div>
+    <% @user_docs = @user.user_docs.includes(:user, :attachment_blob).limit(10).order("id desc") %>
+    <%= render "/user_docs/index" %>
+  </div>
+
+<% end %>

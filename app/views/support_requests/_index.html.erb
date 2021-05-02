@@ -3,6 +3,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
+        <th>Id</th>
         <th>Support Request</th>
         <th class="d-none d-sm-table-cell">Attachment</th>
         <th>Status</th>
@@ -14,6 +15,7 @@
     <tbody>
       <% @support_requests.each do |support_request| %>
         <tr>
+          <td><%= support_request.id %></td>
           <td><%= link_to support_request.req_type, support_request  %></td>
           <td class="d-none d-sm-table-cell"><%= link_to "Download", rails_blob_url(support_request.supporting_doc, disposition: "attachment") if support_request.supporting_doc.attached? %></td>
           <td><%= support_request.closed ? "Closed" : "Open"%></td>
