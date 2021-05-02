@@ -5,7 +5,7 @@
   <thead>
     <tr>
       <th>Document</th>
-      <th>Attachment</th>
+      <th class="d-none d-sm-table-cell">Attachment</th>
       <th>User</th>
       <th></th>
     </tr>
@@ -15,11 +15,11 @@
     <% @user_docs.each do |user_doc| %>
       <tr>
         <td><%= link_to user_doc.doc_type, user_doc %></td>
-        <td><%= link_to "Download", rails_blob_url(user_doc.attachment, disposition: "attachment") if user_doc.attachment.attached? %></td>
+        <td class="d-none d-sm-table-cell"><%= link_to "Download", rails_blob_url(user_doc.attachment, disposition: "attachment") if user_doc.attachment.attached? %></td>
         <td><%= user_doc.user.full_name %></td>
         <td>
-          <%= link_to 'Edit', edit_user_doc_path(user_doc), class: "btn btn-primary" %>
-          <%= link_to 'Delete', user_doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'Edit', edit_user_doc_path(user_doc), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Delete', user_doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
         </td>
       </tr>
     <% end %>

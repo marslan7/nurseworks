@@ -58,10 +58,10 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                <%= link_to "Forgot Password", new_user_password_path(resource_name), class: "small" %>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <%= link_to "Sign In", new_user_session_path(), class: "small" %>
                             </div>
                         </div>
                     </div>

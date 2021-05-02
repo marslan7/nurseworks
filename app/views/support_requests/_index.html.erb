@@ -19,8 +19,8 @@
           <td><%= support_request.closed ? "Closed" : "Open"%></td>
           <td><%= support_request.user.full_name %></td>
           <td>
-          <%= link_to 'Edit', edit_support_request_path(support_request), class: "btn btn-primary" %>
-          <%= link_to 'Delete', support_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <%= link_to 'Edit', edit_support_request_path(support_request), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Delete', support_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>
