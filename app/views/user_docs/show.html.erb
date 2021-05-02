@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-bordered table-striped table-hover">
+
+
+
+<tr>
+  <td>
+    <strong>Doc type:</strong>
+  </td>
+  <td>
+          <%= @user_doc.doc_type %>
+      </td>
+</tr>
+
+
+<tr>
+  <td>
+    <strong>Description:</strong>
+  </td>
+  <td>
+          <%= @user_doc.description %>
+      </td>
+</tr>
+
+
+<tr>
+  <td>
+    <strong>User:</strong>
+  </td>
+  <td>
+          <%= @user_doc.user.full_name %>
+      </td>
+</tr>
+
+<tr>
+  <td>
+    <strong>Attachment:</strong>
+  </td>
+  <td>
+          <%= link_to "Download", rails_blob_url(@user_doc.attachment, disposition: "attachment") if @user_doc.attachment.attached? %>
+      </td>
+</tr>
+
+
+</table> 
+
+<%= link_to 'Edit', edit_user_doc_path(@user_doc), class:"btn btn-primary" %> |
+<%= link_to 'Back', user_docs_path, class:"btn btn-primary" %>
+

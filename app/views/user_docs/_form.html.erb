@@ -1,0 +1,33 @@
+<%= form_with(model: user_doc) do |form| %>
+  <% if user_doc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_doc.errors.count, "error") %> prohibited this user_doc from being saved:</h2>
+
+      <ul>
+        <% user_doc.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" class="form-group">
+    <%= form.label :doc_type %>
+    <%= form.select :doc_type, UserDoc::TYPES, {}, {class: "form-control"} %>    
+  </div>
+
+  <div class="field" class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="field" class="form-group">
+    <%= form.label :attachment %>
+    <%= form.file_field :attachment, class: "form-control" %>
+  </div>
+
+
+
+<button type="submit" class="btn btn-primary">Save</button>
+
+<% end %>
