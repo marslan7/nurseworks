@@ -13,8 +13,10 @@ class User < ApplicationRecord
 
   has_many :support_requests
   has_many :user_docs
+
+  has_rich_text :bio
   
-  has_one_attached :profile_image
+  has_one_attached :profile_image, dependent: :destroy
 
   before_create :setup_role
 

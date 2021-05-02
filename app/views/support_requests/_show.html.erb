@@ -1,0 +1,66 @@
+<table class="table table-bordered table-striped table-hover">
+
+<tr>
+  <td>
+    <strong>Request Id:</strong>
+  </td>
+  <td>
+      <%= @support_request.id %>
+    </td>
+</tr>
+
+
+<tr>
+  <td>
+    <strong>Request Type:</strong>
+  </td>
+  <td>
+      <%= @support_request.req_type %>
+    </td>
+</tr>
+
+<tr>
+  <td>
+    <strong>Status:</strong>
+  </td>
+  <td>
+      <%= @support_request.closed ? "Closed" : "Open"%>
+
+    </td>
+</tr>
+
+
+
+
+<tr>
+  <td>
+    <strong>Details:</strong>
+  </td>
+  <td>
+      <%= @support_request.content %>
+  </td>
+</tr>
+
+
+<tr>
+  <td>
+    <strong>User:</strong>
+  </td>
+  <td>
+      <%= @support_request.user.full_name %>
+    </td>
+</tr>
+
+<% if @support_request.supporting_doc.attached? %>
+<tr>
+  <td>
+    <strong>Attachment:</strong>
+  </td>
+  <td>
+      <%= link_to "Download", rails_blob_url(@support_request.supporting_doc, disposition: "attachment") %>
+  </td>
+</tr>
+<% end %>
+
+
+</table> 

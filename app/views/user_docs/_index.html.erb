@@ -1,5 +1,7 @@
 
-<table class="table table-bordered">
+<div class="table-responsive">
+  <table class="table table-bordered">
+
   <thead>
     <tr>
       <th>Document</th>
@@ -12,11 +14,10 @@
   <tbody>
     <% @user_docs.each do |user_doc| %>
       <tr>
-        <td><%= user_doc.doc_type %></td>
+        <td><%= link_to user_doc.doc_type, user_doc %></td>
         <td><%= link_to "Download", rails_blob_url(user_doc.attachment, disposition: "attachment") if user_doc.attachment.attached? %></td>
         <td><%= user_doc.user.full_name %></td>
         <td>
-          <%= link_to 'Show', user_doc, class: "btn btn-primary" %>
           <%= link_to 'Edit', edit_user_doc_path(user_doc), class: "btn btn-primary" %>
           <%= link_to 'Delete', user_doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         </td>
@@ -25,4 +26,5 @@
   </tbody>
 </table>
 
+</div>
 

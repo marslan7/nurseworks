@@ -5,11 +5,11 @@ class UserDocsController < ApplicationController
 
   # GET /user_docs or /user_docs.json
   def index
-    @user_docs = UserDoc.accessible_by(current_ability)
+    @user_docs = UserDoc.accessible_by(current_ability).includes(:user, :attachment_blob)
   end
 
   def search
-    @user_docs = UserDoc.search(params[:query])
+    @user_docs = UserDoc.includes(:user, :attachment_blob).search(params[:query])
     render "index"
   end
 

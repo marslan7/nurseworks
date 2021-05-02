@@ -16,14 +16,20 @@
 
  @import "./actiontext.scss";
 
- .profile_pic {
+.profile_pic {
      max-width: 200px;
      max-height: 400px;
  }
 
+
 a.btn {
-    color: white;
+    color: white !important;
 }     
+
+a:visited, a:hover {
+    color: #4e73df;
+    background-color: transparent;
+}
  
 #notice {
     text-align: center;

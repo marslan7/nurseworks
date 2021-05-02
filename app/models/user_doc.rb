@@ -5,7 +5,7 @@ class UserDoc < ApplicationRecord
     )
 
     belongs_to :user
-    has_one_attached :attachment
+    has_one_attached :attachment, dependent: :destroy
     
     TYPES = [
         "Drivers License", "SSN card", "CNA license", "Insurance card",

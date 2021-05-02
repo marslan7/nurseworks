@@ -1,67 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<table class="table table-bordered table-striped table-hover">
-
-
-
-<tr>
-  <td>
-    <strong>Req type:</strong>
-  </td>
-  <td>
-      <%= @support_request.req_type %>
-    </td>
-</tr>
-
-<tr>
-  <td>
-    <strong>Status:</strong>
-  </td>
-  <td>
-      <%= @support_request.closed ? "Closed" : "Open"%>
-
-    </td>
-</tr>
-
-
-
-
-<tr>
-  <td>
-    <strong>Details:</strong>
-  </td>
-  <td>
-      <%= @support_request.content %>
-  </td>
-</tr>
-
-      
-
-
-
-<tr>
-  <td>
-    <strong>User:</strong>
-  </td>
-  <td>
-      <%= @support_request.user.full_name %>
-    </td>
-</tr>
-
-<% if @support_request.supporting_doc.attached? %>
-<tr>
-  <td>
-    <strong>Attachment:</strong>
-  </td>
-  <td>
-      <%= link_to "Download", rails_blob_url(@support_request.supporting_doc, disposition: "attachment") %>
-  </td>
-</tr>
-<% end %>
-
-
-</table> 
-
+<%= render "show" %>
 <%= link_to 'Edit', edit_support_request_path(@support_request), class:"btn btn-primary" %> |
 <%= link_to 'Back', support_requests_path, class:"btn btn-primary" %>
 

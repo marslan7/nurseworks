@@ -1,29 +1,30 @@
 
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Support Request</th>
-      <th>Attachment</th>
-      <th>Status</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @support_requests.each do |support_request| %>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
       <tr>
-        <td><%= support_request.req_type %></td>
-        <td><%= link_to "Download", rails_blob_url(support_request.supporting_doc, disposition: "attachment") if support_request.supporting_doc.attached? %></td>
-        <td><%= support_request.closed ? "Closed" : "Open"%></td>
-        <td><%= support_request.user.full_name %></td>
-        <td><%= link_to 'Show', support_request, class: "btn btn-primary" %>
-        <%= link_to 'Edit', edit_support_request_path(support_request), class: "btn btn-primary" %>
-        <%= link_to 'Delete', support_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <th>Support Request</th>
+        <th class="d-none d-sm-table-cell">Attachment</th>
+        <th>Status</th>
+        <th>User</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @support_requests.each do |support_request| %>
+        <tr>
+          <td><%= link_to support_request.req_type, support_request  %></td>
+          <td class="d-none d-sm-table-cell"><%= link_to "Download", rails_blob_url(support_request.supporting_doc, disposition: "attachment") if support_request.supporting_doc.attached? %></td>
+          <td><%= support_request.closed ? "Closed" : "Open"%></td>
+          <td><%= support_request.user.full_name %></td>
+          <td>
+          <%= link_to 'Edit', edit_support_request_path(support_request), class: "btn btn-primary" %>
+          <%= link_to 'Delete', support_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 

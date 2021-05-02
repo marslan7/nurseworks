@@ -45,6 +45,16 @@
 
 <tr>
   <td>
+    <strong>Bio:</strong>
+  </td>
+  <td>
+      <%= @user.bio %>
+    </td>
+</tr>
+
+
+<tr>
+  <td>
     <strong>Profile Pic:</strong>
   </td>
   <td>
@@ -60,11 +70,11 @@
 </div>
 
 <div>
-  <% @support_requests = @user.support_requests.limit(10).order("id desc") %>
+  <% @support_requests = @user.support_requests.includes(:user, :supporting_doc_blob).limit(10).order("id desc") %>
   <%= render "/support_requests/index" %>
 </div>
 
 <div>
-  <% @user_docs = @user.user_docs.limit(10).order("id desc") %>
+  <% @user_docs = @user.user_docs.includes(:user, :attachment_blob).limit(10).order("id desc") %>
   <%= render "/user_docs/index" %>
 </div>
