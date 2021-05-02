@@ -22,6 +22,10 @@ class SupportRequest < ApplicationRecord
     "Schedule of Admin Fees"]
 
 
+    scope :open, -> { where("closed = 0") }
+    scope :closed, -> { where("closed = 1") }
+
+
     after_save :send_notification
 
     def send_notification
