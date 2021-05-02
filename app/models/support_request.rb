@@ -4,6 +4,7 @@ class SupportRequest < ApplicationRecord
         self, :behaviours => [:real_time]
     )
     
+
     belongs_to :user
     has_one_attached :supporting_doc, dependent: :destroy
 

@@ -1,6 +1,10 @@
-ThinkingSphinx::Index.define :user, :with => :active_record do
+ThinkingSphinx::Index.define :user, :with => :real_time do
     indexes first_name, :sortable => true
     indexes last_name, :sortable => true
     indexes email, :sortable => true
-    has role, created_at, updated_at
+    
+    has user_id , :type => :integer 
+    has created_at, :type => :timestamp
+    has updated_at, :type => :timestamp
+
 end

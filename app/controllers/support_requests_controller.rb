@@ -8,7 +8,7 @@ class SupportRequestsController < ApplicationController
   end
 
   def search
-    @support_requests = SupportRequest.includes(:user, :supporting_doc_blob).search(params[:query])
+    @support_requests = SupportRequest.search(params[:query])
     render "index"
   end
 
