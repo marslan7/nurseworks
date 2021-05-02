@@ -12,8 +12,14 @@ class User < ApplicationRecord
   
   has_one_attached :profile_image
 
+  before_create :setup_role
+
   def full_name
     first_name + " " + last_name
   end
   
+  def setup_role
+    self.role = "User"
+  end
+
 end

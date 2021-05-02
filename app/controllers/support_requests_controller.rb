@@ -1,9 +1,10 @@
 class SupportRequestsController < ApplicationController
-  before_action :set_support_request, only: %i[ show edit update destroy ]
+  # before_action :set_support_request, only: %i[ show edit update destroy ]
+  load_and_authorize_resource :except => ["index"]
 
   # GET /support_requests or /support_requests.json
   def index
-    @support_requests = SupportRequest.all
+    @support_requests = SupportRequest.accessible_by(current_ability)
   end
 
   # GET /support_requests/1 or /support_requests/1.json
