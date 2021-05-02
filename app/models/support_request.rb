@@ -1,4 +1,9 @@
 class SupportRequest < ApplicationRecord
+    
+    ThinkingSphinx::Callbacks.append(
+        self, :behaviours => [:real_time]
+    )
+    
     belongs_to :user
     has_one_attached :supporting_doc
 

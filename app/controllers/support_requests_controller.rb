@@ -1,10 +1,15 @@
 class SupportRequestsController < ApplicationController
   # before_action :set_support_request, only: %i[ show edit update destroy ]
-  load_and_authorize_resource :except => ["index"]
+  load_and_authorize_resource :except => ["index", "search"]
 
   # GET /support_requests or /support_requests.json
   def index
     @support_requests = SupportRequest.accessible_by(current_ability)
+  end
+
+  def search
+    @support_requests = SupportRequest.search(params[:query])
+    render "index"
   end
 
   # GET /support_requests/1 or /support_requests/1.json

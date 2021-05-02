@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   #before_action :set_user, only: %i[ show edit update destroy ]
-  load_and_authorize_resource :except => ["index"]
+  load_and_authorize_resource :except => ["index", "search"]
 
   # GET /users or /users.json
   def index
     @users = User.accessible_by(current_ability)
+  end
+
+  def search
+    @users = User.search(params[:query])
+    render "index"
   end
 
   # GET /users/1 or /users/1.json

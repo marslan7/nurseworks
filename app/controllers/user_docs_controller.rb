@@ -1,12 +1,18 @@
 class UserDocsController < ApplicationController
   #before_action :set_user_doc, only: %i[ show edit update destroy ]
-  load_and_authorize_resource :except => ["index"]
+  load_and_authorize_resource :except => ["index", "search"]
 
 
   # GET /user_docs or /user_docs.json
   def index
     @user_docs = UserDoc.accessible_by(current_ability)
   end
+
+  def search
+    @user_docs = UserDoc.search(params[:query])
+    render "index"
+  end
+
 
   # GET /user_docs/1 or /user_docs/1.json
   def show
