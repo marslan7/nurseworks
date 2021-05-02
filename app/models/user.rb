@@ -10,7 +10,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  ROLES = ["User", "Admin"]
+  
   has_many :support_requests
   has_many :user_docs
 
