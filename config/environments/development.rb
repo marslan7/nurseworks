@@ -85,7 +85,7 @@ Rails.application.configure do
   
     # To render only the message body, without any metadata or extra containers or styling.
     # Default value is `:default` that renders styled message with showing useful metadata.
-    lconfig.message_template = :light
+    lconfig.message_template = :default
   end
 
 end

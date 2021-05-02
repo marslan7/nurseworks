@@ -26,4 +26,8 @@ class SupportRequest < ApplicationRecord
     def send_notification
         SupportRequestMailer.with(support_request: self).notification_email.deliver
     end
+
+    def status
+        self.closed ? "Closed" : "Open"
+    end
 end
