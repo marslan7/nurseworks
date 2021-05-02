@@ -71,6 +71,6 @@ class SupportRequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def support_request_params
-      params.require(:support_request).permit(:req_type, :supporting_doc, :content)
+      params.require(:support_request).permit(:req_type, :supporting_doc, :content, :closed)
     end
 end

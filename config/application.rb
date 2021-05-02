@@ -16,6 +16,11 @@ module RailsBootstrap
       g.template_engine :erb
     end
 
+
+    config.to_prepare do
+      Devise::Mailer.layout "mailer" # simple.haml or simple.erb
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

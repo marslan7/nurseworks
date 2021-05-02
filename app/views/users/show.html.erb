@@ -45,10 +45,10 @@
 
 <tr>
   <td>
-    <strong>Profile:</strong>
+    <strong>Profile Pic:</strong>
   </td>
   <td>
-      <%= image_tag @user.profile_image, class: "profile_pic" %>
+      <%= image_tag @user.profile_image, class: "profile_pic" if @user.profile_image.attached? %>
   </td>
 </tr>
 

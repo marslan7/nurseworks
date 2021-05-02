@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'cancancan'
 gem 'thinking-sphinx'
+gem "letter_opener", :group => :development
+
 
 
 gem "aws-sdk-s3", require: false
