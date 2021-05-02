@@ -1,34 +1,9 @@
 
 <p id="notice" class="alert" role="alert"><%= notice %></p>
-
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Support Requests</h1>
     <%= link_to 'New Support Request', new_support_request_path, class: "btn btn-primary" %>
 </div>
 
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Req type</th>
-      <th>Attachment</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @support_requests.each do |support_request| %>
-      <tr>
-        <td><%= support_request.req_type %></td>
-        <td><%= link_to "Download", rails_blob_url(support_request.supporting_doc, disposition: "attachment") if support_request.supporting_doc.attached? %></td>
-        <td><%= support_request.user.full_name %></td>
-        <td><%= link_to 'Show', support_request, class: "btn btn-primary" %>
-        <%= link_to 'Edit', edit_support_request_path(support_request), class: "btn btn-primary" %>
-        <%= link_to 'Delete', support_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
+<%= render "index" %>

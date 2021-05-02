@@ -52,12 +52,19 @@
   </td>
 </tr>
 
-
-
-
-
 </table> 
 
-<%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |
-<%= link_to 'Back', users_path, class:"btn btn-primary" %>
+<div class="btn-div">
+  <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |
+  <%= link_to 'Back', users_path, class:"btn btn-primary" %>
+</div>
 
+<div>
+  <% @support_requests = @user.support_requests.limit(10).order("id desc") %>
+  <%= render "/support_requests/index" %>
+</div>
+
+<div>
+  <% @user_docs = @user.user_docs.limit(10).order("id desc") %>
+  <%= render "/user_docs/index" %>
+</div>
