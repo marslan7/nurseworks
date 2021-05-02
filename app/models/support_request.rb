@@ -19,4 +19,11 @@ class SupportRequest < ApplicationRecord
     "Notification of Material event or change in client",
     "Request for Name change",
     "Schedule of Admin Fees"]
+
+
+    after_save :send_notification
+
+    def send_notification
+        SupportRequestMailer.with(support_request: self).notification_email.deliver
+    end
 end
