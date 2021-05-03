@@ -38,3 +38,21 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+
+  desc "Uploads .env remote servers."
+  task :upload_env do
+    on roles(:app) do
+      rails_env = fetch(:rails_env)
+      puts "Uploading .env files to #{release_path} #{rails_env}"
+      upload!("/home/thimmaiah/work/NurseWorks/.env", "#{release_path}", recursive: false)
+      upload!("/home/thimmaiah/work/NurseWorks/.env.local", "#{release_path}", recursive: false)
+      upload!("/home/thimmaiah/work/NurseWorks/.env.staging", "#{release_path}", recursive: false) if rails_env == :staging
+      upload!("/home/thimmaiah/work/NurseWorks/.env.production", "#{release_path}", recursive: false) if rails_env == :production      
+    end
+  end
+
+  before "deploy:migrate", :upload_env
+
+end
