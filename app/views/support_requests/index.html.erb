@@ -3,7 +3,10 @@
 <p id="notice" class="alert" role="alert"><%= notice %></p>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Support Requests</h1>
-    <%= link_to 'New Support Request', new_support_request_path, class: "btn btn-primary" %>
+    <span>
+        <%= link_to "Closed Requests", support_requests_path(closed:true), class: "btn btn-primary" %>
+        <%= link_to 'New Support Request', new_support_request_path, class: "btn btn-primary" %>
+    </span>
 </div>
 
 
