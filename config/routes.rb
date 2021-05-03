@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :user_docs do
     get 'search', on: :collection
   end

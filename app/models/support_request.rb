@@ -25,7 +25,7 @@ class SupportRequest < ApplicationRecord
     scope :open, -> { where("closed = 0") }
     scope :closed, -> { where("closed = 1") }
 
-
+    before_create :init_defaults
     after_save :send_notification
 
     def send_notification
@@ -34,5 +34,9 @@ class SupportRequest < ApplicationRecord
 
     def status
         self.closed ? "Closed" : "Open"
+    end
+
+    def init_defaults
+        self.closed = false if self.closed == nil
     end
 end

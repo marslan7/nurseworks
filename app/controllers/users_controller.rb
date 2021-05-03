@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       Caregiver - XX+ years <br>
       State License - <br>
       Criminal Background - None <br>
-      Contact number - (309) 213-7561 <br>
+      Contact number - #{@user.phone} <br>
       <br>
       <br>
       Brief Summary Here

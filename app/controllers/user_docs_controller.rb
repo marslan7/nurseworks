@@ -9,7 +9,7 @@ class UserDocsController < ApplicationController
   end
 
   def search
-    @user_docs = UserDoc.includes(:user, :attachment_blob).search(params[:query])
+    @user_docs = UserDoc.search(params[:query])
     render "index"
   end
 

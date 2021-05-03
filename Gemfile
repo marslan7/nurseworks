@@ -28,6 +28,7 @@ gem "letter_opener", :group => :development
 gem 'dotenv-rails'
 
 
+
 gem "aws-sdk-s3", require: false
 
 # Use Active Storage variant

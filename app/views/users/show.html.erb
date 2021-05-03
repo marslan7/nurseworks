@@ -6,6 +6,16 @@
 
 <tr>
   <td>
+    <strong>Profile Pic:</strong>
+  </td>
+  <td>
+      <%= @user.profile_image.attached? ? image_tag(@user.profile_image, class: "profile_pic") : "Not Uploaded" %>
+  </td>
+</tr>
+
+
+<tr>
+  <td>
     <strong>First name:</strong>
   </td>
   <td>
@@ -61,15 +71,6 @@
     </td>
 </tr>
 
-
-<tr>
-  <td>
-    <strong>Profile Pic:</strong>
-  </td>
-  <td>
-      <%= image_tag @user.profile_image, class: "profile_pic" if @user.profile_image.attached? %>
-  </td>
-</tr>
 
 </table> 
 

@@ -33,7 +33,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Biodata</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= link_to current_user.bio.present? ? "View" : "Not Setup", edit_user_path(current_user) %></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= link_to current_user.bio.present? ? "View" : "Not Setup", edit_user_path(current_user, {"bio":true}) %></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-address-card fa-2x text-gray-300"></i>
@@ -104,12 +104,10 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Request for additional hours</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="https://picsum.photos/seed/picsum1/600/200" alt="...">
-                                    </div>
                                     <p>Please download the instructions to request for additional hours from the link below</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Request for additional hours &rarr;</a>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://undraw.co/">Request for additional hours
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
 
@@ -119,12 +117,10 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Instructions for clocking in and out</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="https://picsum.photos/seed/picsum2/600/200" alt="...">
-                                    </div>
                                     <p>Please download the instructions to request for clocking in and out from the link below</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Instructions for clocking in and out &rarr;</a>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://undraw.co/">Instructions for clocking in and out
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
 
@@ -139,12 +135,10 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Caregiver Contractor handbook</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="https://picsum.photos/seed/picsum3/600/200" alt="...">
-                                    </div>
                                     <p>Please download the Caregiver Contractor handbook from the link below</p>                                    
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Caregiver Contractor handbook &rarr;</a>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://undraw.co/">Caregiver Contractor handbook
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
 
@@ -154,12 +148,10 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="https://picsum.photos/seed/picsum4/600/200" alt="...">
-                                    </div>
                                     <p>Please download the Caregiver Contractor handbook from the link below</p>                                    
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Caregiver Contractor handbook &rarr;</a>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://undraw.co/">Caregiver Contractor handbook
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
 
