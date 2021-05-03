@@ -34,7 +34,8 @@ div.actions {
   margin-bottom: 10px; }
 
 #notice {
-  color: green; }
+  color: #4e73df 
+}
 
 .field_with_errors {
   padding: 2px;
@@ -63,3 +64,8 @@ div.actions {
 
 label {
   display: block; }
+
+
+input[type="file" i] {
+  height: calc(1.5em + .75rem + 7px);
+}

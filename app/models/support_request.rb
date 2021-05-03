@@ -19,7 +19,8 @@ class SupportRequest < ApplicationRecord
     "Request for CNA renewal form completion",
     "Notification of Material event or change in client",
     "Request for Name change",
-    "Schedule of Admin Fees"]
+    "Schedule of Admin Fees",
+    "Other"]
 
 
     scope :open, -> { where("closed = 0") }
