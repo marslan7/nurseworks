@@ -28,6 +28,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  password: root1234
   database: NurseWorks_Test
 
 production:
