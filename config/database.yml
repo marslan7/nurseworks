@@ -33,7 +33,7 @@ test:
 staging:
   <<: *default
   password: root1234
-  database: NurseWorks_Test
+  database: NurseWorks_Staging
 
 
 production:
