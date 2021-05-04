@@ -30,7 +30,7 @@ class SupportRequest < ApplicationRecord
     after_save :send_notification
 
     def send_notification
-        SupportRequestMailer.with(support_request: self).notification_email.deliver
+        SupportRequestMailer.with(support_request: self).notification_email.deliver_later
     end
 
     def status

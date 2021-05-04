@@ -34,6 +34,9 @@ module RailsBootstrap
 
     config.secret_key_base = ENV['SECRET_KEY_BASE']
 
+    config.active_job.queue_adapter = :delayed_job
+
+    Rails.application.routes.default_url_options[:host]= ENV['HOST']
 
   end
 end

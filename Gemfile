@@ -27,6 +27,7 @@ gem 'thinking-sphinx'
 gem "letter_opener", :group => :development
 gem 'dotenv-rails'
 gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+gem 'delayed_job_active_record'
 
 
 
