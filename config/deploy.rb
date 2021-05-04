@@ -46,13 +46,12 @@ namespace :deploy do
     on roles(:app) do
       rails_env = fetch(:rails_env)
       puts "Uploading .env files to #{release_path} #{rails_env}"
-      upload!("/home/thimmaiah/work/NurseWorks/.env", "#{release_path}", recursive: false)
-      upload!("/home/thimmaiah/work/NurseWorks/.env.local", "#{release_path}", recursive: false)
-      upload!("/home/thimmaiah/work/NurseWorks/.env.staging", "#{release_path}", recursive: false) if rails_env == :staging
-      upload!("/home/thimmaiah/work/NurseWorks/.env.production", "#{release_path}", recursive: false) if rails_env == :production      
+      upload!("/data/work/NurseWorks/.env", "#{release_path}", recursive: false)
+      upload!("/data/work/NurseWorks/.env.staging", "#{release_path}", recursive: false) if rails_env == :staging
+      upload!("/data/work/NurseWorks/.env.production", "#{release_path}", recursive: false) if rails_env == :production      
     end
   end
 
-  before "deploy:migrate", :upload_env
+  before "deploy:assets:precompile", :upload_env
 
 end

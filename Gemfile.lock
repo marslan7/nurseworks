@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/seuros/capistrano-puma.git
+  revision: 285b45f51d0662e760cc5e75f15614589a2be170
+  specs:
+    capistrano3-puma (5.0.4)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (>= 4.0, < 6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -280,6 +289,7 @@ DEPENDENCIES
   capistrano-bundler (~> 2.0)
   capistrano-rails (~> 1.6)
   capistrano-rvm
+  capistrano3-puma!
   capybara (>= 3.26)
   devise
   dotenv-rails
