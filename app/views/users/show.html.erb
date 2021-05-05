@@ -62,24 +62,25 @@
     </td>
 </tr>
 
-<tr>
-  <td>
-    <strong>Emergency Contact Name:</strong>
-  </td>
-  <td>
-      <%= @user.emergency_contact_name %>
+<% if !params[:print] %>
+  <tr>
+    <td>
+      <strong>Emergency Contact Name:</strong>
     </td>
-</tr>
+    <td>
+        <%= @user.emergency_contact_name %>
+      </td>
+  </tr>
 
-<tr>
-  <td>
-    <strong>Emergency Contact Phone:</strong>
-  </td>
-  <td>
-      <%= @user.emergency_contact_phone %>
+  <tr>
+    <td>
+      <strong>Emergency Contact Phone:</strong>
     </td>
-</tr>
-
+    <td>
+        <%= @user.emergency_contact_phone %>
+      </td>
+  </tr>
+<% end %>
 
 <tr>
   <td>
@@ -93,12 +94,19 @@
 
 </table> 
 
+<% if params[:print] %>
+  <%= link_to 'Back', user_path(@user), class:"btn btn-primary" %> |  
+  <button class="btn btn-primary" onclick="window.print()">Print</button>
+<% else %>
 <div class="btn-div">
-  <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |
-  <%= link_to 'Back', users_path, class:"btn btn-primary" %>
+  <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |  
+  <%= link_to 'Back', users_path, class:"btn btn-primary" %> |
+  <%= link_to 'Print', user_path(@user, print:true), class:"btn btn-primary" %> 
 </div>
+<% end %>
 
-<% if current_user.role == 'Admin' %>
+
+<% if current_user.role == 'Admin' && !params[:print].present? %>
 
   <div>
     <% @support_requests = @user.support_requests.includes(:user, :supporting_doc_blob).limit(10).order("id desc") %>
