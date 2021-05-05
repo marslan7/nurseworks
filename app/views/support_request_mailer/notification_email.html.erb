@@ -1,5 +1,5 @@
 <p>Dear <%= @support_request.user.first_name %>,</p>
-<% if @support_request.created_at == @support_request.updated_at %>
+<% if @support_request.updated_at - @support_request.created_at < 1  %>
 <p>
     Thank you for submitting your request to Care Mountain’s Admin team. 
     We will process your request within 72 business hours (outside of weekends). 
@@ -8,6 +8,7 @@
 <% else %>
 <p>
     Your ticket has been updated. Please find the details below
+</p>
 </>
 <% end %>
 <%= render "/support_requests/show" %>
