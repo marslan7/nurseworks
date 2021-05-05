@@ -24,7 +24,7 @@
     <strong>Status:</strong>
   </td>
   <td>
-      <%= @support_request.closed ? "Closed" : "Open"%>
+      <%= @support_request.status %>
 
     </td>
 </tr>
@@ -50,6 +50,17 @@
       <%= @support_request.user.full_name %>
     </td>
 </tr>
+
+<tr>
+  <td><strong>Created:</strong></td> 
+  <td><%= @support_request.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+</tr>
+
+<tr>
+  <td><strong>Updated:</strong></td> 
+  <td><%= @support_request.updated_at.strftime("%Y-%m-%d %H:%M") %></td>          
+</tr>
+
 
 <% if @support_request.supporting_doc.attached? %>
 <tr>

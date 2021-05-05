@@ -34,7 +34,7 @@ class SupportRequest < ApplicationRecord
     end
 
     def status
-        self.closed ? "Closed" : "Open"
+        self.closed ? "Completed" : "Open"
     end
 
     def init_defaults

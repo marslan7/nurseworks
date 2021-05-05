@@ -46,6 +46,16 @@
       <%= form.file_field :profile_image, class: "form-control" %>
     </div>
 
+    <div class="field" class="form-group">
+      <%= form.label :emergency_contact_name %>
+      <%= form.text_field :emergency_contact_name, class: "form-control" %>
+    </div>
+
+    <div class="field" class="form-group">
+      <%= form.label :emergency_contact_phone %>
+      <%= form.text_field :emergency_contact_phone, class: "form-control" %>
+    </div>
+
   <% end %>
 
   <div class="field" class="form-group">
