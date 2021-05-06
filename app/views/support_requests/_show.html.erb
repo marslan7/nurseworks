@@ -44,10 +44,20 @@
 
 <tr>
   <td>
-    <strong>User:</strong>
+    <strong>Raised By:</strong>
   </td>
   <td>
       <%= @support_request.user.full_name %>
+    </td>
+</tr>
+
+
+<tr>
+  <td>
+    <strong>Updated By:</strong>
+  </td>
+  <td>
+      <%= @support_request.updated_by.full_name if @support_request.updated_by %>
     </td>
 </tr>
 

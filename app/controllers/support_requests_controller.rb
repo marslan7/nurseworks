@@ -48,6 +48,7 @@ class SupportRequestsController < ApplicationController
 
   # PATCH/PUT /support_requests/1 or /support_requests/1.json
   def update
+    @support_request.updated_by = current_user
     respond_to do |format|
       if @support_request.update(support_request_params)
         format.html { redirect_to @support_request, notice: "Support request was successfully updated." }

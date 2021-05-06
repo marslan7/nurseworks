@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_033430) do
+ActiveRecord::Schema.define(version: 2021_05_06_145944) do
 
   create_table "action_text_rich_texts", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2021_05_05_033430) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "closed"
+    t.integer "updated_by_id"
+    t.index ["updated_by_id"], name: "index_support_requests_on_updated_by_id"
     t.index ["user_id"], name: "index_support_requests_on_user_id"
   end
 
@@ -97,7 +99,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_033430) do
     t.datetime "remember_created_at"
     t.string "phone", limit: 20
     t.string "emergency_contact_name", limit: 60
-    t.string "emergency_contect_phone", limit: 20
+    t.string "emergency_contact_phone", limit: 20
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
