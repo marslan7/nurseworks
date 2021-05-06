@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.accessible_by(current_ability)
+    @users = User.accessible_by(current_ability).page(params[:page])
   end
 
   def search

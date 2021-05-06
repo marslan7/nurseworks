@@ -31,6 +31,9 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'whenever', require: false
 gem 'roo'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+
 
 
 gem "aws-sdk-s3", require: false
