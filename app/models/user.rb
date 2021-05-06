@@ -36,23 +36,23 @@ class User < ApplicationRecord
   def self.import_from_xl(xl_path)
     xlsx = Roo::Spreadsheet.open(xl_path)
 
-    # header_row_count = 2
-    # details_sheet = xlsx.sheet(1) 
-    # row_count = details_sheet.count # First 2 rows are dummy
-    # (header_row_count..row_count).each do |i|
-    #   row = details_sheet.row(i)
-    #   puts "#{row}"
-    #   email = row[1]
-    #   u = User.find_by(email: email)
-    #   u = User.new if u == nil
-    #   u.last_name, u.first_name = row[0].split(",")
-    #   u.last_name = u.last_name.strip
-    #   u.first_name = u.first_name.strip
-    #   u.email = row[1].strip
-    #   u.password = row[1].strip
-    #   u.phone = row[2].strip
-    #   u.save!
-    # end
+    header_row_count = 2
+    details_sheet = xlsx.sheet(1) 
+    row_count = details_sheet.count # First 2 rows are dummy
+    (header_row_count..row_count).each do |i|
+      row = details_sheet.row(i)
+      puts "#{row}"
+      email = row[1]
+      u = User.find_by(email: email)
+      u = User.new if u == nil
+      u.last_name, u.first_name = row[0].split(",")
+      u.last_name = u.last_name.strip
+      u.first_name = u.first_name.strip
+      u.email = row[1].strip
+      u.password = row[1].strip
+      u.phone = row[2].strip
+      u.save!
+    end
 
     not_found = []
     bio_sheet = xlsx.sheet(0) 

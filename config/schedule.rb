@@ -19,6 +19,12 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, at: '4:30 am' do
-    
+job_type :puma,  "cd :path && bundle exec rails :task -e :environment "
+
+
+every :reboot do
+    script "delayed_job start"
+    puma "s"
+    rake "ts:rebuild"
 end
+

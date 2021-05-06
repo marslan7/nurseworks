@@ -16,7 +16,7 @@
       <th>Email</th>
       <th class="d-none d-sm-table-cell">Phone</th>
       <th class="d-none d-sm-table-cell">Role</th>
-      <th></th>
+      <th class="d-none d-sm-table-cell"></th>
     </tr>
   </thead>
 
@@ -30,7 +30,7 @@
         <td><%= user.email %></td>
         <td class="d-none d-sm-table-cell"><%= user.phone %></td>
         <td class="d-none d-sm-table-cell"><%= user.role %></td>
-        <td>
+        <td class="d-none d-sm-table-cell">
           <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary btn-sm" %>
         </td>
       </tr>
@@ -38,7 +38,7 @@
   </tbody>
 </table>
 
-<%= paginate @users, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+<%= paginate @users, window:1, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
 
 </div>
 
