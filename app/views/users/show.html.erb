@@ -95,13 +95,12 @@
 </table> 
 
 <% if params[:print] %>
-  <%= link_to 'Back', user_path(@user), class:"btn btn-primary" %> |  
-  <button class="btn btn-primary" onclick="window.print()">Print</button>
+  <%# <button class="btn btn-primary" onclick="window.print()">Print</button> %>
 <% else %>
 <div class="btn-div">
   <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |  
   <%= link_to 'Back', users_path, class:"btn btn-primary" %> |
-  <%= link_to 'Print', user_path(@user, print:true), class:"btn btn-primary" %> 
+  <%= link_to 'Print', user_path(@user, print:true), target:"_blank", class:"btn btn-primary" %> 
 </div>
 <% end %>
 
