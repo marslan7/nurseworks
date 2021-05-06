@@ -4,7 +4,7 @@ class SupportRequestsController < ApplicationController
 
   # GET /support_requests or /support_requests.json
   def index
-    @support_requests = SupportRequest.accessible_by(current_ability)
+    @support_requests = SupportRequest.accessible_by(current_ability).page(params[:page])
     
     @support_requests = @support_requests.open if params[:open].present?
     @support_requests = @support_requests.closed if params[:closed].present?
