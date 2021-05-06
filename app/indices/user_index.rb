@@ -3,6 +3,7 @@ ThinkingSphinx::Index.define :user, :with => :real_time do
     indexes last_name, :sortable => true
     indexes email
     indexes phone
+    indexes bio
     
     has user_id , :type => :integer 
     has created_at, :type => :timestamp
