@@ -6,7 +6,7 @@ class SupportRequest < ApplicationRecord
     
 
     belongs_to :user
-    belongs_to :updated_by, class_name: "User"
+    belongs_to :updated_by, class_name: "User", optional: true
 
     has_one_attached :supporting_doc, dependent: :destroy
 
@@ -14,12 +14,13 @@ class SupportRequest < ApplicationRecord
 
     
     TYPES = ["Time off notification",
+        "Request for additional hours",
+        "Request for payout",
     "Address and phone number changes",
     "Request for Tax 1099",
     "Request for wage verification",
     "Request for pay stub",
     "Request for CNA renewal form completion",
-    "Notification of Material event or change in client",
     "Request for Name change",
     "Schedule of Admin Fees",
     "Other"]

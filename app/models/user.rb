@@ -12,8 +12,8 @@ class User < ApplicationRecord
 
   ROLES = ["User", "Admin"]
   
-  has_many :support_requests
-  has_many :user_docs
+  has_many :support_requests, dependent: :delete_all
+  has_many :user_docs, dependent: :delete_all
 
   has_rich_text :bio
   
