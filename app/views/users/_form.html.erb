@@ -33,11 +33,17 @@
       <%= form.text_field :phone, class: "form-control" %>
     </div>
 
+    
 
     <% if current_user.role == 'Admin' %>
     <div class="field" class="form-group">
       <%= form.label :role %>
       <%= form.select :role, User::ROLES, {}, {class: "form-control"} %>    
+    </div>
+
+    <div class="field" class="form-group">
+      <%= form.label :earnings %>
+      <%= form.number_field :earnings, step: :any, class: "form-control" %>
     </div>
     <% end %>
 
