@@ -78,7 +78,7 @@
     <strong>Attachment:</strong>
   </td>
   <td>
-      <%= link_to "Download", rails_blob_url(@support_request.supporting_doc, disposition: "attachment") %>
+      <%= link_to "Download", rails_blob_url(@support_request.supporting_doc, disposition: "attachment"), id: "download_link" %>
   </td>
 </tr>
 <% end %>

@@ -5,7 +5,7 @@
     <h1 class="h3 mb-0 text-gray-800">Support Requests</h1>
     <span>
         <%= link_to "Completed Requests", support_requests_path(closed:true), class: "btn btn-primary" %>
-        <%= link_to 'New Support Request', new_support_request_path, class: "btn btn-primary" %>
+        <%= link_to 'New Support Request', new_support_request_path, id: "new_support_request_btn", class: "btn btn-primary" %>
     </span>
 </div>
 

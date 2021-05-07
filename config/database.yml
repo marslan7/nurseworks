@@ -20,7 +20,7 @@ default: &default
 
 development:
   <<: *default
-  database: NurseWorks_Dev
+  database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
 
 # Warning: The database defined as "test" will be erased and

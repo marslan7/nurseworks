@@ -14,8 +14,8 @@ class SupportRequest < ApplicationRecord
 
     
     TYPES = ["Time off notification",
-        "Request for additional hours",
-        "Request for payout",
+    "Request for additional hours",
+    "Request for payout",
     "Address and phone number changes",
     "Request for Tax 1099",
     "Request for wage verification",
