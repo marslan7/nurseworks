@@ -61,7 +61,7 @@ describe('Support Requests', function() {
                     .and('contain', 'sample_attachment.txt'); 
 
             cy.appEval("ActionMailer::Base.deliveries.last.subject").then((results) => {
-                expect(results).to.eql("Notification: Request 1 - Open")
+                expect(results).to.eql("Note from Care Mountain: Request 1 - Open")
             })
 
             cy.appEval("ActionMailer::Base.deliveries.last.body.raw_source").then((results) => {
