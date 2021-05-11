@@ -43,4 +43,16 @@ class SupportRequest < ApplicationRecord
     def init_defaults
         self.closed = false if self.closed == nil
     end
+
+
+    validate :acceptable_supporting_doc
+
+    def acceptable_supporting_doc
+        return unless supporting_doc.attached?
+        
+        unless supporting_doc.byte_size <= 5.megabyte
+            errors.add(:supporting_doc, "is too big. Must be less than 5 MB")
+        end
+    end
+
 end
