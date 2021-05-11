@@ -1,4 +1,4 @@
-module UsersImport
+module UserImport
 
     def self.import_from_xl(xl_path)
         xlsx = Roo::Spreadsheet.open(xl_path)

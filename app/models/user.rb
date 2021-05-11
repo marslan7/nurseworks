@@ -27,7 +27,7 @@ class User < ApplicationRecord
   
   def setup_role
     self.role = "User"
-    self.deactivated = true
+    self.deactivated = false
   end
 
   def send_devise_notification(notification, *args)
