@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_023557) do
+ActiveRecord::Schema.define(version: 2021_05_11_030646) do
 
   create_table "action_text_rich_texts", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_023557) do
     t.string "emergency_contact_name", limit: 60
     t.string "emergency_contact_phone", limit: 20
     t.float "earnings"
+    t.boolean "deactivated"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

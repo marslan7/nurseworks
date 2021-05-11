@@ -27,6 +27,7 @@ class User < ApplicationRecord
   
   def setup_role
     self.role = "User"
+    self.deactivated = true
   end
 
   def send_devise_notification(notification, *args)
@@ -73,6 +74,14 @@ class User < ApplicationRecord
 
     puts not_found
 
+  end
+
+  def active_for_authentication?
+    super && !deactivated
+  end
+
+  def active_status
+    self.deactivated ? "No" : "Yes"
   end
 
 end
