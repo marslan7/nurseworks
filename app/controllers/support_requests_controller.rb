@@ -13,7 +13,12 @@ class SupportRequestsController < ApplicationController
   end
 
   def search
-    @support_requests = SupportRequest.search(params[:query])
+    if current_user.role == "Admin"
+      @support_requests = SupportRequest.search(params[:query])
+    else
+      @support_requests = SupportRequest.search(params[:query], :with => {:id => current_user.id})
+    end
+
     render "index"
   end
 

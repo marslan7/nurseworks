@@ -9,7 +9,12 @@ class UserDocsController < ApplicationController
   end
 
   def search
-    @user_docs = UserDoc.search(params[:query])
+    if current_user.role == "Admin"
+      @user_docs = UserDoc.search(params[:query])
+    else
+      @user_docs = UserDoc.search(params[:query], :with => {:user_id => current_user.id})
+    end
+
     render "index"
   end
 

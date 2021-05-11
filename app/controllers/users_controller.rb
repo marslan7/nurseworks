@@ -8,7 +8,13 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:query])
+    
+    if current_user.role == "Admin"
+      @users = User.search(params[:query])
+    else
+      @users = User.search(params[:query], :with => {:id => current_user.id})
+    end
+
     render "index"
   end
 

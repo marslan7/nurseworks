@@ -5,7 +5,6 @@ ThinkingSphinx::Index.define :user, :with => :real_time do
     indexes phone
     indexes bio
     
-    has user_id , :type => :integer 
     has created_at, :type => :timestamp
     has updated_at, :type => :timestamp
 
