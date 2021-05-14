@@ -38,4 +38,5 @@ staging:
 
 production:
   <<: *default
+  password: root1234
   database: NurseWorks_Staging
