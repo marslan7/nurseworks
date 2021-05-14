@@ -38,4 +38,4 @@ staging:
 
 production:
   <<: *default
-  database: NurseWorks_Prod
+  database: NurseWorks_Staging

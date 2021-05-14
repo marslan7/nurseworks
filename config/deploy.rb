@@ -10,6 +10,8 @@ set :branch, 'main'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/ubuntu/NurseWorks"
+set :ssh_options, forward_agent: :true 
+set :ssh_options, keys: "/home/thimmaiah/.ssh/NurseWorks.pem" 
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
