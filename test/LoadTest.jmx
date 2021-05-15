@@ -1819,8 +1819,8 @@
         <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Doc ID" enabled="true">
           <stringProp name="variableName">doc_id</stringProp>
           <stringProp name="outputFormat"></stringProp>
-          <stringProp name="minimumValue">162</stringProp>
-          <stringProp name="maximumValue">169</stringProp>
+          <stringProp name="minimumValue">4015</stringProp>
+          <stringProp name="maximumValue">4020</stringProp>
           <stringProp name="randomSeed"></stringProp>
           <boolProp name="perThread">false</boolProp>
         </RandomVariableConfig>
