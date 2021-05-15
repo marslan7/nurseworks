@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   has_rich_text :bio
   
-  has_one_attached :profile_image, dependent: :destroy
+  has_one_attached :profile_image
 
   before_create :setup_role
 
