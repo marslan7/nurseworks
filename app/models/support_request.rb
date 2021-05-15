@@ -8,7 +8,7 @@ class SupportRequest < ApplicationRecord
     belongs_to :user
     belongs_to :updated_by, class_name: "User", optional: true
 
-    has_one_attached :supporting_doc, dependent: :destroy
+    has_one_attached :supporting_doc
 
     has_rich_text :content
 
