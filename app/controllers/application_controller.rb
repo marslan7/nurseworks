@@ -12,5 +12,18 @@ class ApplicationController < ActionController::Base
     def set_search_controller
       @search_controller = params[:controller] != "home" ? params[:controller] : "support_requests" 
     end
+
+    rescue_from CanCan::AccessDenied do |exception|
+      redirect_to users_path, alert: exception.message 
+    end
+
+    before_action :prepare_exception_notifier
+    private
+
+    def prepare_exception_notifier
+      request.env["exception_notifier.exception_data"] = {
+        current_user: current_user
+      }
+    end
   
 end
