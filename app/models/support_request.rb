@@ -23,6 +23,7 @@ class SupportRequest < ApplicationRecord
     "Request for CNA renewal form completion",
     "Request for Name change",
     "Schedule of Admin Fees",
+    "Direct Deposit Info",
     "Other"]
 
 

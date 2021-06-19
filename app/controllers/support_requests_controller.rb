@@ -8,8 +8,13 @@ class SupportRequestsController < ApplicationController
     
     @support_requests = @support_requests.open if params[:open].present?
     @support_requests = @support_requests.closed if params[:closed].present?
+    dir = params[:dir] || "asc"
+    order_by = params[:order_by] || "support_requests.id"
+    order_by += " " + dir
+    @dir = (dir == "asc") ? "desc" : "asc"
+    
 
-    @support_requests = @support_requests.order("id desc").includes(:user, :supporting_doc_blob)
+    @support_requests = @support_requests.includes(:user, :supporting_doc_blob).order(order_by)
   end
 
   def search

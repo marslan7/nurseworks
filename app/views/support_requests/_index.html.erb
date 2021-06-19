@@ -1,13 +1,13 @@
 
 <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table id="support_requests_table" class="table table-bordered table-hover sortable">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Support Request</th>
+        <th><%= link_to "Id", :order_by => "id", :dir => @dir %></th>
+        <th><%= link_to "Support Request", :order_by => "req_type", :dir => @dir %></th>
         <th class="d-none d-sm-table-cell">Attachment</th>
-        <th class="d-none d-sm-table-cell">Status</th>
-        <th>Raised By</th>
+        <th class="d-none d-sm-table-cell"><%= link_to "Status", :order_by => "closed", :dir => @dir %></th>
+        <th><%= link_to "Raised By", :order_by => "users.first_name", :dir => @dir %></th>
         <th class="d-none d-sm-table-cell">Updated</th>
         
         <th class="d-none d-sm-table-cell"></th>
