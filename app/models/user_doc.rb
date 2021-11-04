@@ -1,8 +1,8 @@
 class UserDoc < ApplicationRecord
 
-    # ThinkingSphinx::Callbacks.append(
-    #     self, :behaviours => [:real_time]
-    # )
+    ThinkingSphinx::Callbacks.append(
+        self, :behaviours => [:real_time]
+    )
 
     belongs_to :user
     has_one_attached :attachment
