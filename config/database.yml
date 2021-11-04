@@ -9,8 +9,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   username: root
-  password:
-  # host: 127.0.0.1
+  password: password
+
+  host: localhost
   # port: 3306
 
   flags:
@@ -21,7 +22,8 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
+  database: NurseWorks_Staging
+  # database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
 
 # Warning: The database defined as "test" will be erased and
@@ -33,11 +35,11 @@ test:
 
 staging:
   <<: *default
-  password:
+  password: password
   database: NurseWorks_Staging
 
 
 production:
   <<: *default
-  password:
+  password: password
   database: NurseWorks_Staging
