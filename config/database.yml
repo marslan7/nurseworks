@@ -10,6 +10,7 @@ default: &default
   encoding: utf8
   username: root
   password: password
+  socket: /var/lib/mysqld/mysqld.sock
 
   host: localhost
   # port: 3306
@@ -20,9 +21,9 @@ default: &default
     - MULTI_STATEMENTS
   secure_auth: false
 
-development:
-  <<: *default
-  database: NurseWorks_Staging
+# development:
+#   <<: *default
+#   database: NurseWorks_Staging
   # database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
 
