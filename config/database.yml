@@ -21,8 +21,8 @@ default: &default
     - MULTI_STATEMENTS
   secure_auth: false
 
-# development:
-#   <<: *default
+development:
+  <<: *default
 #   database: NurseWorks_Staging
   # database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
