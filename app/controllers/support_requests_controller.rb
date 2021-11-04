@@ -5,14 +5,13 @@ class SupportRequestsController < ApplicationController
   # GET /support_requests or /support_requests.json
   def index
     @support_requests = SupportRequest.accessible_by(current_ability).page(params[:page])
-    
+
     @support_requests = @support_requests.open if params[:open].present?
     @support_requests = @support_requests.closed if params[:closed].present?
     dir = params[:dir] || "asc"
     order_by = params[:order_by] || "support_requests.id"
     order_by += " " + dir
     @dir = (dir == "asc") ? "desc" : "asc"
-    
 
     @support_requests = @support_requests.includes(:user, :supporting_doc_blob).order(order_by)
   end

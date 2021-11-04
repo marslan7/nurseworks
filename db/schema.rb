@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_030646) do
+ActiveRecord::Schema.define(version: 2021_10_30_194033) do
 
-  create_table "action_text_rich_texts", charset: "utf8", force: :cascade do |t|
+  create_table "action_text_rich_texts", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
     t.string "record_type", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_030646) do
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
-  create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_030646) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb3", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -44,13 +44,24 @@ ActiveRecord::Schema.define(version: 2021_05_11_030646) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "delayed_jobs", charset: "utf8", force: :cascade do |t|
+  create_table "assign_supporting_docs", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "support_request_id", null: false
+    t.bigint "super_admin_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["super_admin_id"], name: "index_assign_supporting_docs_on_super_admin_id"
+    t.index ["support_request_id"], name: "index_assign_supporting_docs_on_support_request_id"
+    t.index ["user_id"], name: "index_assign_supporting_docs_on_user_id"
+  end
+
+  create_table "delayed_jobs", charset: "utf8mb3", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
     t.text "handler", null: false
@@ -65,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_030646) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "support_requests", charset: "utf8", force: :cascade do |t|
+  create_table "support_requests", charset: "utf8mb3", force: :cascade do |t|
     t.string "req_type", limit: 50
     t.text "details"
     t.integer "user_id"
@@ -77,7 +88,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_030646) do
     t.index ["user_id"], name: "index_support_requests_on_user_id"
   end
 
-  create_table "user_docs", charset: "utf8", force: :cascade do |t|
+  create_table "user_docs", charset: "utf8mb3", force: :cascade do |t|
     t.string "doc_type", limit: 50
     t.text "description"
     t.integer "user_id"
@@ -86,7 +97,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_030646) do
     t.index ["user_id"], name: "index_user_docs_on_user_id"
   end
 
-  create_table "users", charset: "utf8", force: :cascade do |t|
+  create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "role"

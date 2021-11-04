@@ -5,10 +5,16 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.accessible_by(current_ability).page(params[:page])
+    dir = params[:dir] || "asc"
+    order_by = params[:order_by] || "users.id"
+    order_by += " " + dir
+    @dir = (dir == "asc") ? "desc" : "asc"
+
+    @users = User.order(order_by).page(params[:page])
   end
 
   def search
-    
+
     if current_user.role == "Admin"
       @users = User.search(params[:query])
     else
@@ -63,10 +69,10 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    # Default the role to user to prevent priv escalation    
+    # Default the role to user to prevent priv escalation
     up = user_params
     if current_user.role != "Admin"
-      up[:role] = "User" 
+      up[:role] = "User"
       # logger.debug  "user_params = #{up}"
     end
 
@@ -99,6 +105,6 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :role, :earnings, :deactivated,
-        :emergency_contact_name, :emergency_contact_phone, :profile_image, :bio, :phone)
+        :emergency_contact_name, :emergency_contact_phone, :profile_image, :bio, :phone, :password, :password_confirmation)
     end
 end

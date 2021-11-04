@@ -1,9 +1,9 @@
 class SupportRequest < ApplicationRecord
-    
+
     ThinkingSphinx::Callbacks.append(
         self, :behaviours => [:real_time]
     )
-    
+
 
     belongs_to :user
     belongs_to :updated_by, class_name: "User", optional: true
@@ -12,7 +12,7 @@ class SupportRequest < ApplicationRecord
 
     has_rich_text :content
 
-    
+
     TYPES = ["Time off notification",
     "Request for additional hours",
     "Request for payout",
@@ -24,6 +24,7 @@ class SupportRequest < ApplicationRecord
     "Request for Name change",
     "Schedule of Admin Fees",
     "Direct Deposit Info",
+    "Vaccine Card",
     "Other"]
 
 
@@ -50,7 +51,7 @@ class SupportRequest < ApplicationRecord
 
     def acceptable_supporting_doc
         return unless supporting_doc.attached?
-        
+
         unless supporting_doc.byte_size <= 5.megabyte
             errors.add(:supporting_doc, "is too big. Must be less than 5 MB")
         end

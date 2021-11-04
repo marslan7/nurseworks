@@ -13,12 +13,12 @@
 
   <div class="field" class="form-group">
     <%= form.label :req_type %>
-    <%= form.select :req_type, SupportRequest::TYPES, {}, {class: "form-control"} %>    
+    <%= form.select :req_type, SupportRequest::TYPES, {}, {class: "form-control"} %>
   </div>
 
   <div class="field" class="form-group">
     <%= form.label :closed, "Status" %>
-    <%= form.select :closed, options_for_select([['Open',false],['Completed',true]], selected: support_request.closed), {}, {class: "form-control"} %>    
+    <%= form.select :closed, options_for_select([['Open',false],['Completed',true]], selected: support_request.closed), {}, {class: "form-control"} %>
   </div>
 
   <div class="field" class="form-group">

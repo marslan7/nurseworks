@@ -57,15 +57,6 @@
 
   <tr>
     <td>
-      <strong>Earnings:</strong>
-    </td>
-    <td>
-        <%= number_to_currency @user.earnings %>
-      </td>
-  </tr>
-
-  <tr>
-    <td>
       <strong>Role:</strong>
     </td>
     <td>
@@ -112,19 +103,19 @@
 </tr>
 
 
-</table> 
+</table>
 
 
 <div class="btn-div">
   <% if params[:print].present? %>
-    <%# <button class="btn btn-primary" onclick="window.print()">Print</button> %>    
+    <%# <button class="btn btn-primary" onclick="window.print()">Print</button> %>
   <% else %>
     <% if current_user.role == 'Admin' %>
-      <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> | 
+      <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> |
     <% end %>
-    <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |  
+    <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |
     <%= link_to 'Back', users_path, class:"btn btn-primary" %> |
-    <%= link_to 'Print', user_path(@user, print:true), target:"_blank", class:"btn btn-primary" %> 
+    <%= link_to 'Print', user_path(@user, print:true), target:"_blank", class:"btn btn-primary" %>
   <% end %>
 
 </div>

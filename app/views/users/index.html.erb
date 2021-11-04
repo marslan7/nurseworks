@@ -9,14 +9,18 @@
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>First Name</th>
-      <th class="d-none d-sm-table-cell">Last Name</th>
-      <th>Email</th>
-      <th class="d-none d-sm-table-cell">Active</th>
-      <th class="d-none d-sm-table-cell">Phone</th>
-      <th class="d-none d-sm-table-cell">Role</th>
+      <th><%= link_to "id", :order_by => "user.id", :dir => @dir %></th>
+      <th><%= link_to "First Name ", :order_by => "email", :dir => @dir %></th>
+      <th class="d-none d-sm-table-cell"><%= link_to "Last Name", :order_by => "email", :dir => @dir %></th>
+      <th><%= link_to "Email", :order_by => "email", :dir => @dir %></th>
+      <th class="d-none d-sm-table-cell"><%= link_to "Active", :order_by => "deactivated", :dir => @dir %></th>
+      <th class="d-none d-sm-table-cell"><%= link_to "phone", :order_by => "phone", :dir => @dir %></th>
+      <th class="d-none d-sm-table-cell"><%= link_to "Role", :order_by => "role", :dir => @dir %></th>
+      <th class="d-none d-sm-table-cell"><%= link_to "Dated Added", :order_by => "created_at", :dir => @dir %></th>
       <th class="d-none d-sm-table-cell"></th>
+      <% if current_user.role == "Super Admin"%>
+        <th class="d-none d-sm-table-cell"></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -31,14 +35,22 @@
         <td class="d-none d-sm-table-cell"><%= user.active_status %></td>
         <td class="d-none d-sm-table-cell"><%= user.phone %></td>
         <td class="d-none d-sm-table-cell"><%= user.role %></td>
+        <td class="d-none d-sm-table-cell"><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
         <td class="d-none d-sm-table-cell">
           <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary btn-sm" %>
         </td>
+        <% if current_user.role == "Super Admin"%>
+          <td class="d-none d-sm-table-cell">
+            <%= link_to 'Change Password', edit_admin_user_path(user), class: "btn btn-primary btn-sm" %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<% if current_user.role == "Super Admin"%>
+  <%= link_to 'Assign Support Request', new_admin_assign_supporting_doc_path, class: "btn btn-primary btn-sm" %>
+<% end %>
 <%= paginate @users, window:1, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
 
 </div>
