@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, only: %i[edit update new create]
-    resources :assign_supporting_docs, only: %i[edit update new create]
+    resources :users, only: %i[edit update] do
+      get :assign_supporting_doc
+      post :assign_doc
+    end
   end
 
   devise_for :users

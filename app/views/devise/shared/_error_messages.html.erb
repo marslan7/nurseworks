@@ -1,8 +1,9 @@
 <% if resource.errors.any? %>
   <div id="">
-    <ul>
+    <ul class="alert alert-danger alert-dismissible fade show" role="alert">
+      <h1 class="font-bold">Errors:</h1>
       <% resource.errors.full_messages.each do |message| %>
-        <li class="alert alert-danger alert-dismissible fade show" role="alert">
+        <li>
           <%= message %>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

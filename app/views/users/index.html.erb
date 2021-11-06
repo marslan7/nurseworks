@@ -20,6 +20,7 @@
       <th class="d-none d-sm-table-cell"></th>
       <% if current_user.role == "Super Admin"%>
         <th class="d-none d-sm-table-cell"></th>
+        <th class="d-none d-sm-table-cell"></th>
       <% end %>
     </tr>
   </thead>
@@ -43,14 +44,15 @@
           <td class="d-none d-sm-table-cell">
             <%= link_to 'Change Password', edit_admin_user_path(user), class: "btn btn-primary btn-sm" %>
           </td>
+          <td class="d-none d-sm-table-cell">
+            <%= link_to 'Assign Request', admin_user_assign_supporting_doc_path(user), class: "btn btn-primary btn-sm" %>
+          </td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-<% if current_user.role == "Super Admin"%>
-  <%= link_to 'Assign Support Request', new_admin_assign_supporting_doc_path, class: "btn btn-primary btn-sm" %>
-<% end %>
+
 <%= paginate @users, window:1, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
 
 </div>

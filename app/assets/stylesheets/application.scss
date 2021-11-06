@@ -24,13 +24,13 @@
 
 a.btn {
     color: white !important;
-}     
+}
 
 a:visited, a:hover {
     color: #4e73df;
     background-color: transparent;
 }
- 
+
 #notice {
     text-align: center;
 }
@@ -38,4 +38,8 @@ a:visited, a:hover {
 .btn-div {
     text-align: center;
     padding: 20px;
+}
+
+.form-select-request select {
+    width: 100%;
 }
