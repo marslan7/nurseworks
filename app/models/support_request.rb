@@ -1,8 +1,8 @@
 class SupportRequest < ApplicationRecord
 
-    ThinkingSphinx::Callbacks.append(
-        self, :behaviours => [:real_time]
-    )
+    # ThinkingSphinx::Callbacks.append(
+    #     self, :behaviours => [:real_time]
+    # )
 
 
     belongs_to :user
