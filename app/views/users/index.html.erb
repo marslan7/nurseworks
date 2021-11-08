@@ -10,8 +10,8 @@
   <thead>
     <tr>
       <th><%= link_to "id", :order_by => "user.id", :dir => @dir %></th>
-      <th><%= link_to "First Name ", :order_by => "email", :dir => @dir %></th>
-      <th class="d-none d-sm-table-cell"><%= link_to "Last Name", :order_by => "email", :dir => @dir %></th>
+      <th><%= link_to "First Name ", :order_by => "first_name", :dir => @dir %></th>
+      <th class="d-none d-sm-table-cell"><%= link_to "Last Name", :order_by => "last_name", :dir => @dir %></th>
       <th><%= link_to "Email", :order_by => "email", :dir => @dir %></th>
       <th class="d-none d-sm-table-cell"><%= link_to "Active", :order_by => "deactivated", :dir => @dir %></th>
       <th class="d-none d-sm-table-cell"><%= link_to "phone", :order_by => "phone", :dir => @dir %></th>

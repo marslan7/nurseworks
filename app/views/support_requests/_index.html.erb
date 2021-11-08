@@ -8,7 +8,7 @@
         <th class="d-none d-sm-table-cell">Attachment</th>
         <th class="d-none d-sm-table-cell"><%= link_to "Status", :order_by => "closed", :dir => @dir %></th>
         <th><%= link_to "Raised By", :order_by => "users.first_name", :dir => @dir %></th>
-        <th class="d-none d-sm-table-cell">Updated</th>
+        <th class="d-none d-sm-table-cell"><%= link_to "Updated", :order_by => "Updated_at", :dir => @dir %></th>
 
         <th class="d-none d-sm-table-cell"></th>
       </tr>
