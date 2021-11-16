@@ -110,7 +110,7 @@
   <% if params[:print].present? %>
     <%# <button class="btn btn-primary" onclick="window.print()">Print</button> %>
   <% else %>
-    <% if current_user.role == 'Admin' %>
+    <% if current_user.role == 'Manager' %>
       <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> |
     <% end %>
     <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |
@@ -121,7 +121,7 @@
 </div>
 
 
-<% if current_user.role == 'Admin' && !params[:print].present? %>
+<% if current_user.role == 'Manager' && !params[:print].present? %>
 
   <div>
     <% @support_requests = @user.support_requests.includes(:user, :supporting_doc_blob).limit(10).order("id desc") %>

@@ -33,7 +33,7 @@
       <%= form.text_field :phone, class: "form-control", maxlength: "15" %>
     </div>
 
-    <% if current_user.role == 'Admin' || current_user.role == 'Super Admin' %>
+    <% if current_user.role == 'Manager' || current_user.role == 'Super User' %>
       <div class="field" class="form-group">
         <%= form.label :role %>
         <%= form.select :role, User::ROLES, {}, {class: "form-control"} %>

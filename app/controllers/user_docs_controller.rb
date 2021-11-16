@@ -9,7 +9,7 @@ class UserDocsController < ApplicationController
   end
 
   def search
-    if current_user.role == "Admin"
+    if current_user.role == "Manager"
       @user_docs = UserDoc.search(params[:query])
     else
       @user_docs = UserDoc.search(params[:query], :with => {:user_id => current_user.id})

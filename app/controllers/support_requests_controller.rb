@@ -17,7 +17,7 @@ class SupportRequestsController < ApplicationController
   end
 
   def search
-    if current_user.role == "Admin"
+    if current_user.role == "Manager"
       @support_requests = SupportRequest.search(params[:query])
     else
       @support_requests = SupportRequest.search(params[:query], :with => {:id => current_user.id})
@@ -77,6 +77,7 @@ class SupportRequestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
