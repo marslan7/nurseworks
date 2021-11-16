@@ -1,0 +1,12 @@
+
+<% if @user_document.errors.any? %>
+  <%= render 'devise/shared/error_messages', resource: @user_document %>
+<% end %>
+
+<%= form_for [:admin, @user_document], url: create_document_type_admin_users_path do |form| %>
+  <h1 class="h3 mb-4 text-gray-800 mt-5 ml-5">Create Document Type</h1>
+  <div class="form-group col-md-6 p-0 ml-5">
+    <%= form.text_field :doc_type, class:"form-control", placeholder:"Create Document Type" %>
+  </div>
+  <%= form.submit "Create", class: "ml-5 btn btn-primary" %>
+<% end %>

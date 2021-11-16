@@ -12,6 +12,7 @@ class SupportRequest < ApplicationRecord
 
     has_rich_text :content
 
+    validates :req_type, uniqueness: true
 
     TYPES = ["Time off notification",
     "Request for additional hours",
@@ -45,7 +46,6 @@ class SupportRequest < ApplicationRecord
     def init_defaults
         self.closed = false if self.closed == nil
     end
-
 
     validate :acceptable_supporting_doc
 
