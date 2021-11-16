@@ -14,21 +14,6 @@ class SupportRequest < ApplicationRecord
 
     validates :req_type, uniqueness: true
 
-    TYPES = ["Time off notification",
-    "Request for additional hours",
-    "Request for payout",
-    "Address and phone number changes",
-    "Request for Tax 1099",
-    "Request for wage verification",
-    "Request for pay stub",
-    "Request for CNA renewal form completion",
-    "Request for Name change",
-    "Schedule of Admin Fees",
-    "Direct Deposit Info",
-    "Vaccine Card",
-    "Other"]
-
-
     scope :open, -> { where("closed = 0") }
     scope :closed, -> { where("closed = 1") }
 
