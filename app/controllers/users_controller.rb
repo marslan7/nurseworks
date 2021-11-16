@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-    @user.role = "User" if (current_user && current_user.role != "Admin")
+    @user.role = "User" if (current_user && current_user.role != "Manager")
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: "User was successfully created." }
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
   def update
     # Default the role to user to prevent priv escalation
     up = user_params
-    if current_user.role != "Admin"
+    if current_user.role != "Manager"
       up[:role] = "User"
       # logger.debug  "user_params = #{up}"
     end

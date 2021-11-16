@@ -11,12 +11,12 @@ class Ability
       can :manage, SupportRequest, user_id: user.id
       can :manage, UserDoc, user_id: user.id
       can :manage, User, id: user.id
-    elsif user.role == 'Admin'  # additional permissions for administrators
+    elsif user.role == 'Manager'  # additional permissions for administrators
       can :manage, SupportRequest
       can :manage, UserDoc
       can :manage, User
       cannot :manage, User, role: User::ROLES[2]
-    elsif user.role == 'Super Admin'
+    elsif user.role == 'Super User'
       can :manage, :all
     end
 
