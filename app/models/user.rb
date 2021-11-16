@@ -36,6 +36,17 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
+  def support_request_type
+    if self.role == "Super User"
+        self.support_requests
+    end
+  end
+
+  def document_type
+    if self.role == "Super User"
+        self.user_docs
+    end
+  end
 
   def active_for_authentication?
     super && !deactivated

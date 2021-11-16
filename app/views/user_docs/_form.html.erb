@@ -13,7 +13,7 @@
 
   <div class="field" class="form-group">
     <%= form.label :doc_type %>
-    <%= form.select :doc_type, UserDoc::TYPES, {}, {class: "form-control"} %>    
+    <%= form.select :doc_type, @user_document.pluck(:doc_type, :id), {}, {class: "form-control"} %>
   </div>
 
   <div class="field" class="form-group">
