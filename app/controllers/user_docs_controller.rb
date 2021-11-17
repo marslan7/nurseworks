@@ -1,6 +1,6 @@
 class UserDocsController < ApplicationController
   #before_action :set_user_doc, only: %i[ show edit update destroy ]
-  before_action :support_request_user, only: %i[new edit destroy ]
+  before_action :user_docoments_type, only: %i[new edit destroy ]
   load_and_authorize_resource :except => ["index", "search"]
 
 
@@ -73,8 +73,9 @@ class UserDocsController < ApplicationController
 
   private
 
-    def support_request_user
-      @user_document = current_user.document_type
+    def user_docoments_type
+      super_user = User.find_by(role: "Super User")
+      @user_document_types = super_user.user_docs
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_user_doc

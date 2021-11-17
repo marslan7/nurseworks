@@ -6,7 +6,7 @@
     <span>
         <%= link_to "Completed Requests", support_requests_path(closed:true), class: "btn btn-primary mb-2 mb-md-0" %>
         <%= link_to 'New Support Request', new_support_request_path, id: "new_support_request_btn", class: "btn btn-primary" %>
-        <% if current_user.role="Super User" %>
+        <% if current_user.role == "Super User" %>
             <%= link_to 'New Support Request Type', new_support_req_type_admin_users_path, id: "new_support_request_btn", class: "btn btn-primary" %>
         <% end %>
     </span>

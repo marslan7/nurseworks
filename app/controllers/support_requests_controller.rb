@@ -1,6 +1,6 @@
 class SupportRequestsController < ApplicationController
   # before_action :set_support_request, only: %i[ show edit update destroy ]
-  before_action :support_request_user, only: %i[new edit destroy ]
+  before_action :support_request_types, only: %i[new edit destroy ]
   load_and_authorize_resource :except => ["index", "search"]
 
   # GET /support_requests or /support_requests.json
@@ -82,8 +82,9 @@ class SupportRequestsController < ApplicationController
 
   private
 
-    def support_request_user
-      @support_request_user = current_user.support_request_type
+    def support_request_types
+      super_user = User.find_by(role: "Super User")
+      @support_request_types = super_user.support_requests
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_support_request
