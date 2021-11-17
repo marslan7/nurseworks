@@ -84,7 +84,7 @@ class SupportRequestsController < ApplicationController
 
     def support_request_types
       super_user = User.find_by(role: "Super User")
-      @support_request_types = super_user.support_requests
+      @support_request_types = super_user.support_requests.order(updated_at: :desc)
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_support_request

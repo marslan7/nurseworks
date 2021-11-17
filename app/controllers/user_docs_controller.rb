@@ -75,7 +75,7 @@ class UserDocsController < ApplicationController
 
     def user_docoments_type
       super_user = User.find_by(role: "Super User")
-      @user_document_types = super_user.user_docs
+      @user_document_types = super_user.user_docs.order(updated_at: :desc)
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_user_doc
