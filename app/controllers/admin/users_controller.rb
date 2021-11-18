@@ -15,6 +15,7 @@ class Admin::UsersController < ApplicationController
 
   def assign_supporting_doc
     @assign_supporting_doc = AssignSupportingDoc.new
+    @super_user = User.find_by(role: "Super User")
   end
 
   def assign_doc

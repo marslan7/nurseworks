@@ -22,11 +22,11 @@
                               </div>
                               <div class="form-group row">
                                   <div class="col-sm-12 mb-3 mb-sm-0 form-control form-control-user form-select-request">
-                                    <%= f.select :support_request_id, @support_request_user.pluck(:req_type,:id) %>
+                                    <%= f.select :support_request_id, @super_user.present? ? @super_user.support_requests.pluck(:req_type,:id) : SupportRequest::TYPES %>
                                   </div>
                               </div>
 
-                              <input type="Submit" class="btn btn-primary btn-user btn-block", value="Assign Supporting Document">
+                              <input type="Submit" class="btn btn-primary btn-user btn-block", value="Assign Support Request">
 
                           </form>
                       </div>

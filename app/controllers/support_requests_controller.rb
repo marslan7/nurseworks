@@ -83,8 +83,7 @@ class SupportRequestsController < ApplicationController
   private
 
     def support_request_types
-      super_user = User.find_by(role: "Super User")
-      @support_request_types = super_user.support_requests
+      @super_user = User.find_by(role: "Super User")
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_support_request

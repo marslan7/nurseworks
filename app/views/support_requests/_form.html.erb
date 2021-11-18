@@ -13,7 +13,7 @@
 
   <div class="field" class="form-group">
     <%= form.label :req_type %>
-    <%= form.select :req_type, @support_request_types.pluck(:req_type, :id), {}, class: "form-control" %>
+    <%= form.select :req_type, @super_user.present? ? @super_user.support_requests.pluck(:req_type, :id) : SupportRequest::TYPES, {}, class: "form-control" %>
   </div>
 
   <div class="field" class="form-group">
