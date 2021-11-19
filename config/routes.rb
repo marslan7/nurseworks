@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
 
+  resources :paystubs, only: [:index]
+
   resources :support_requests do
     get 'search', on: :collection
   end
