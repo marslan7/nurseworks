@@ -1,6 +1,6 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-3 text-gray-800 mb-md-0">Dashboard</h1>
+                        <h1 class="h3 mb-3 text-gray-800 mb-md-0 font-bold">CARE MOUNTAIN DASHBOARD</h1>
                         <%= link_to 'New Support Request', new_support_request_path, class: "btn btn-primary" %>
                     </div>
 
@@ -10,7 +10,22 @@
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
+                                <a class="text-capitalize h5 mb-0 font-weight-bold text-gray-800" target="_blank" rel="nofollow" href="https://s3-us-west-1.amazonaws.com/public.caregiverportal.lcnurseworks/CG+Clock+in+and+clock+out.pdf">
+                                    <div class="card-body d-md-none">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                        clock in or clock out Call</div>
+                                                    1-888-543-9406
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-phone fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="card-body d-hide">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
@@ -30,7 +45,23 @@
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
+                                <%= link_to edit_user_path(current_user, {"bio":true}), class:"d-md-none" do %>
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Resume</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <%= current_user.bio.present? ? "View" : "Not Setup" %>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-address-card fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end%>
+                                <div class="card-body d-hide">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
@@ -48,7 +79,32 @@
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
+                                <%= link_to user_docs_path, class:"d-md-none" do %>
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Docs
+                                                </div>
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%= current_user.user_docs.count %></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="progress progress-sm mr-2">
+                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                style="width: <%= (current_user.user_docs.count * 100 / 4)  %>%" aria-valuenow="<%= (current_user.user_docs.count * 100 / 4)  %>" aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end%>
+                                <div class="card-body d-hide">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Docs
@@ -77,7 +133,21 @@
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
+                                <%= link_to support_requests_path, class:"d-md-none" do %>
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Pending Requests</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%= current_user.support_requests.open.count %></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end%>
+                                <div class="card-body d-hide">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">

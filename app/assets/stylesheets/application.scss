@@ -43,3 +43,15 @@ a:visited, a:hover {
 .form-select-request select {
     width: 100%;
 }
+
+// mobile secren
+@media (min-width:320px) and (max-width:768px) {
+    .d-hide{
+      display: none;
+    }
+
+    .card-body [class="btn btn-primary btn-lg"]{
+        margin-top: 10px;
+        font-size: 1rem !important;
+    }
+  }
