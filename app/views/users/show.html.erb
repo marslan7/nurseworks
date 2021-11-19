@@ -121,7 +121,7 @@
 </div>
 
 
-<% if current_user.role == ('Super User') && !params[:print].present? %>
+<% if (current_user.role == 'Super User') && !params[:print].present? %>
 
   <div>
     <% @support_requests = @user.support_requests.includes(:user, :supporting_doc_blob).limit(10).order("id desc") %>
