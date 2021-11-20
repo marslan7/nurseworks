@@ -45,7 +45,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def new_document_type
-    @user_document = UserDoc.new
+    @document_type = DocumentType.new
   end
 
   def create_document_type
@@ -55,7 +55,7 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = "Successfully Create Document Type"
       redirect_to user_docs_path
     else
-      render :new_support_req_type
+      render :new_document_type
     end
   end
 

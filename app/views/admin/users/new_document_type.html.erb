@@ -1,6 +1,6 @@
 
-<% if @user_document.errors.any? %>
-  <%= render 'devise/shared/error_messages', resource: @user_document %>
+<% if @document_type.errors.any? %>
+  <%= render 'devise/shared/error_messages', resource: @document_type %>
 <% end %>
 
 <%= form_for DocumentType.new, url: create_document_type_admin_users_path do |form| %>

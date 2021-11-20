@@ -4,7 +4,6 @@ class DocumentType < ApplicationRecord
 
   before_create :validate_sanitize
 
-  validates :alias, uniqueness: true
   validates :name, uniqueness: true
 
   private
