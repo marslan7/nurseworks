@@ -28,12 +28,11 @@ USER_DOCUMENT_TYPES = [
   "Texas state benefits", "Other"
 ]
 
-@super_user = User.find_by(role: "Super User")
 
 SUPPORT_REQUEST_TYPES.each do |support_request|
-  SupportRequest.find_or_create_by(user_id: @super_user.id, req_type: support_request )
+  SupportRequestType.find_or_create_by(user_id: @super_user.id, req_type: support_request )
 end
 
-USER_DOCUMENT_TYPES.each do |support_request|
+DocumentType.each do |support_request|
   UserDoc.find_or_create_by(user_id: @super_user.id, doc_type: support_request )
 end
