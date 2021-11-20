@@ -1,12 +1,12 @@
 
-<% if @support_request.errors.any? %>
-  <%= render 'devise/shared/error_messages', resource: @support_request %>
+<% if @support_request_type.errors.any? %>
+  <%= render 'devise/shared/error_messages', resource: @support_request_type %>
 <% end %>
 
-<%= form_for [:admin, @support_request], url: create_support_req_type_admin_users_path do |form| %>
+<%= form_for [:admin, @support_request_type], url: create_support_req_type_admin_users_path do |form| %>
   <h1 class="h3 mb-4 text-gray-800 mt-5 ml-5">Support Requests Type</h1>
   <div class="form-group col-md-6 p-0 ml-5">
-    <%= form.text_field :req_type, class:"form-control", placeholder:"Create Support Requset Type" %>
+    <%= form.text_field :name, class:"form-control", placeholder:"Create Support Requset Type" %>
   </div>
   <%= form.submit "Create", class: "ml-5 btn btn-primary" %>
 <% end %>

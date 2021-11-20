@@ -12,8 +12,18 @@
   <% end %>
 
   <div class="field" class="form-group">
-    <%= form.label :req_type %>
-    <%= form.select :req_type, @super_user.present? ? @super_user.support_requests.pluck(:req_type, :id) : SupportRequest::TYPES, {}, class: "form-control" %>
+    <%= form.label :support_request_type_id %>
+    <%= form.select :support_request_type_id, SupportRequestType.pluck(:name, :id) || SupportRequest::TYPES, {}, class: "form-control" %>
+  </div>
+
+  <div class="field" class="form-group display-none">
+    <%= form.label :start_date %>
+    <%= form.text_field :start_date, class: "form-control datepicker" %>
+  </div>
+
+  <div class="field" class="form-group">
+    <%= form.label :end_date %>
+     <%= form.text_field :end_date, class: "form-control datepicker" %>
   </div>
 
   <div class="field" class="form-group">

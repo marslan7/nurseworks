@@ -10,6 +10,14 @@ class UsersController < ApplicationController
     order_by += " " + dir
     @dir = (dir == "asc") ? "desc" : "asc"
 
+    type_id = SupportRequestType.find_by(alias: "time off notification").id
+    start_date = params.fetch(:start_date, Date.today).to_date
+
+    if params["user"] && params["user"]["start_date"] && params["user"]["end_date"]
+      @number_of_days = (params["user"]["end_date"].to_date - params["user"]["start_date"].to_date) + 1
+      @time_of_notifications =  SupportRequest.includes(:user).where(support_request_type_id: type_id).where("start_date >= ? && end_date <=?", params["user"]["start_date"].to_date, params["user"]["end_date"].to_date)
+    end
+
     @users = User.order(order_by).page(params[:page])
   end
 

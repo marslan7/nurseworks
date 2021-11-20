@@ -21,13 +21,12 @@ class SupportRequest < ApplicationRecord
     ]
 
     belongs_to :user
+    belongs_to :support_request_type
     belongs_to :updated_by, class_name: "User", optional: true
 
     has_one_attached :supporting_doc
 
     has_rich_text :content
-
-    validates :req_type, uniqueness: true
 
     scope :open, -> { where("closed = 0") }
     scope :closed, -> { where("closed = 1") }

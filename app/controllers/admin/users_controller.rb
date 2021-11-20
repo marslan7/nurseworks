@@ -30,13 +30,13 @@ class Admin::UsersController < ApplicationController
   end
 
   def new_support_req_type
-    @support_request = SupportRequest.new
+    @support_request_type = SupportRequestType.new
   end
 
   def create_support_req_type
-    @support_request = current_user.support_requests.new(support_request_params)
+    @support_request_type = SupportRequestType.new(support_request_params)
 
-    if @support_request.save
+    if @support_request_type.save
       flash[:notice] = "Successfully Create Support Request Type"
       redirect_to support_requests_path
     else
@@ -49,9 +49,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def create_document_type
-    @user_document = current_user.user_docs.new(user_doc_params)
+    @document_type = DocumentType.new(document_type_params)
 
-    if @user_document.save
+    if @document_type.save
       flash[:notice] = "Successfully Create Document Type"
       redirect_to user_docs_path
     else
@@ -79,8 +79,12 @@ class Admin::UsersController < ApplicationController
     params.require(:assign_supporting_doc).permit(:user_id, :support_request_id, :super_admin)
   end
 
+  def document_type_params
+    params.require(:document_type).permit(:name)
+  end
+
   def support_request_params
-    params.require(:support_request).permit(:req_type, :supporting_doc, :content, :closed)
+    params.require(:support_request_type).permit(:name)
   end
 
   def user_doc_params
