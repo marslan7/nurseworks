@@ -1,4 +1,35 @@
 
+<%= form_for User.new, url: users_path, method: :get do |form| %>
+  <div class="field" class="form-group">
+    <%= form.label :start_date %>
+    <%= form.text_field :start_date, class: "form-control datepicker" %>
+  </div>
+
+  <div class="field" class="form-group">
+    <%= form.label :end_date %>
+     <%= form.text_field :end_date, class: "form-control datepicker" %>
+  </div>
+
+  <%= form.submit "setTime" %>
+<% end %>
+
+
+<% if params["user"] %>
+
+<%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @time_of_notifications) do |date, meetings| %>
+  <%= date %>
+<% color = ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info"] %>
+  <% meetings.each do |meeting| %>
+    <% name = meeting.user.first_name %>
+    <div class="<%= color[name.length % color.length] %>">
+      <%= name %>
+    </div>
+  <% end %>
+<% end %>
+
+<% end %>
+
+
 <p id="notice"><%= notice %></p>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">

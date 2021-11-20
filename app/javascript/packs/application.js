@@ -14,6 +14,15 @@ ActiveStorage.start()
 
 
 require("bootstrap")
+require("bootstrap-datepicker")
+
+//= require jquery-3.2.1.slim.min
+//= require popper.min
+//= require bootstrap.min
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
+
 
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {
@@ -26,3 +35,9 @@ require("trix")
 require("@rails/actiontext")
 
 Turbolinks.setProgressBarDelay(1000)
+
+$(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: 'yyyy-mm-dd'
+    });
+  });

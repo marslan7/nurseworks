@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_30_194033) do
+ActiveRecord::Schema.define(version: 2021_11_19_223343) do
 
   create_table "action_text_rich_texts", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,20 @@ ActiveRecord::Schema.define(version: 2021_10_30_194033) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "document_types", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.string "alias"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "support_request_types", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.string "alias"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "support_requests", charset: "utf8mb3", force: :cascade do |t|
     t.string "req_type", limit: 50
     t.text "details"
@@ -84,6 +98,10 @@ ActiveRecord::Schema.define(version: 2021_10_30_194033) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "closed"
     t.integer "updated_by_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.bigint "support_request_type_id", null: false
+    t.index ["support_request_type_id"], name: "index_support_requests_on_support_request_type_id"
     t.index ["updated_by_id"], name: "index_support_requests_on_updated_by_id"
     t.index ["user_id"], name: "index_support_requests_on_user_id"
   end

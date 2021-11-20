@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :start_date, :end_date
 
   # ThinkingSphinx::Callbacks.append(
   #       self, :behaviours => [:real_time]

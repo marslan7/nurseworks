@@ -5,7 +5,7 @@ class SupportRequestsController < ApplicationController
 
   # GET /support_requests or /support_requests.json
   def index
-    @support_requests = SupportRequest.accessible_by(current_ability).page(params[:page])
+    @support_requests = SupportRequest.includes(:support_request_type).accessible_by(current_ability).page(params[:page])
 
     @support_requests = @support_requests.open if params[:open].present?
     @support_requests = @support_requests.closed if params[:closed].present?
@@ -13,6 +13,8 @@ class SupportRequestsController < ApplicationController
     order_by = params[:order_by] || "support_requests.id"
     order_by += " " + dir
     @dir = (dir == "asc") ? "desc" : "asc"
+
+    # time_of_notifications =  SupportRequest.include(:users).where("request_type = 6")
 
     @support_requests = @support_requests.includes(:user, :supporting_doc_blob).order(order_by)
   end
@@ -92,6 +94,6 @@ class SupportRequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def support_request_params
-      params.require(:support_request).permit(:req_type, :supporting_doc, :content, :closed)
+      params.require(:support_request).permit(:req_type, :supporting_doc, :content, :closed, :start_date, :end_date, :support_request_type_id)
     end
 end
