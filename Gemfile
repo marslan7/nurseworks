@@ -34,6 +34,9 @@ gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'rexml'
 gem 'exception_notification'
+gem "simple_calendar", "~> 2.4"
+gem 'bootstrap-datepicker-rails'
+
 
 
 gem "aws-sdk-s3", require: false
@@ -50,6 +53,7 @@ group :development, :test do
   gem 'cypress-on-rails', '~> 1.0'
   gem 'factory_bot_rails'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'pry'
 end
 
 group :development do
