@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_19_223343) do
+ActiveRecord::Schema.define(version: 2021_11_20_083446) do
 
   create_table "action_text_rich_texts", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 2021_11_19_223343) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "document_type_id", null: false
+    t.index ["document_type_id"], name: "index_user_docs_on_document_type_id"
     t.index ["user_id"], name: "index_user_docs_on_user_id"
   end
 

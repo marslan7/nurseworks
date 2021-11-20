@@ -17,6 +17,7 @@ class UserDoc < ApplicationRecord
     ]
 
     belongs_to :user
+    belongs_to :document_type
     has_one_attached :attachment
 
     validate :acceptable_attachment

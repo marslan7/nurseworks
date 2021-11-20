@@ -6,7 +6,7 @@ class UserDocsController < ApplicationController
 
   # GET /user_docs or /user_docs.json
   def index
-    @user_docs = UserDoc.accessible_by(current_ability).includes(:user, :attachment_blob).page(params[:page])
+    @user_docs = UserDoc.accessible_by(current_ability).includes(:document_type, :user, :attachment_blob).page(params[:page])
   end
 
   def search
@@ -83,6 +83,6 @@ class UserDocsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_doc_params
-      params.require(:user_doc).permit(:doc_type, :description, :attachment)
+      params.require(:user_doc).permit(:doc_type, :description, :attachment, :document_type_id)
     end
 end
