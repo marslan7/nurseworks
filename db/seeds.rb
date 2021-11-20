@@ -23,16 +23,22 @@ SUPPORT_REQUEST_TYPES =[
 ]
 
 USER_DOCUMENT_TYPES = [
-  "Drivers License", "SSN card", "CNA license", "Insurance card",
-  "Doctors note", "Jury duty notification", "Covid vaccine appt",
-  "Texas state benefits", "Other"
+  "Drivers License",
+  "SSN card",
+  "CNA license",
+  "Insurance card",
+  "Doctors note",
+  "Jury duty notification",
+  "Covid vaccine appt",
+  "Texas state benefits",
+  "Other"
 ]
 
 
-SUPPORT_REQUEST_TYPES.each do |support_request|
-  SupportRequestType.find_or_create_by(user_id: @super_user.id, req_type: support_request )
+SUPPORT_REQUEST_TYPES.each do |support_request_type|
+  SupportRequestType.find_or_create_by( name: support_request_type, alias: support_request_type )
 end
 
-DocumentType.each do |support_request|
-  UserDoc.find_or_create_by(user_id: @super_user.id, doc_type: support_request )
+USER_DOCUMENT_TYPES.each do |document_request_type|
+  DocumentType.find_or_create_by(name: document_request_type, alias: document_request_type )
 end
