@@ -7,6 +7,11 @@ class UserDocsController < ApplicationController
   # GET /user_docs or /user_docs.json
   def index
     @user_docs = UserDoc.accessible_by(current_ability).includes(:document_type, :user, :attachment_blob).page(params[:page])
+    dir = params[:dir] || "asc"
+    order_by = params[:order_by] || "user_docs.id"
+    order_by += " " + dir
+    @dir = (dir == "asc") ? "desc" : "asc"
+    @user_docs = @user_docs.includes(:user).order(order_by)
   end
 
   def search
