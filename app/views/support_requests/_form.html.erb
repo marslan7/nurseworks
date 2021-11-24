@@ -13,7 +13,7 @@
 
   <div class="field" class="form-group">
     <%= form.label :support_request_type_id %>
-    <%= form.select :support_request_type_id, SupportRequestType.pluck(:name, :id) || SupportRequest::TYPES, {}, class: "form-control" %>
+    <%= form.select :support_request_type_id, SupportRequestType.pluck(:name) || SupportRequest::TYPES, {}, class: "form-control" %>
   </div>
 
   <div class="field form-group display-none start-date">
