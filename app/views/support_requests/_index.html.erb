@@ -3,7 +3,7 @@
   <table id="support_requests_table" class="table table-bordered table-hover sortable">
     <thead>
       <tr>
-        <th><%= link_to "Id", :order_by => "id", :dir => @dir %></th>
+        <th><%= link_to "Request#", :order_by => "id", :dir => @dir %></th>
         <th><%= link_to "Support Request", :order_by => "req_type", :dir => @dir %></th>
         <th class="d-none d-sm-table-cell">Attachment</th>
         <th class="d-none d-sm-table-cell"><%= link_to "Status", :order_by => "closed", :dir => @dir %></th>

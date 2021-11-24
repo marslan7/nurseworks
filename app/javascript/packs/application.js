@@ -16,20 +16,31 @@ ActiveStorage.start()
 require("bootstrap")
 require("bootstrap-datepicker")
 
+
 //= require jquery-3.2.1.slim.min
+//= require jquery_ujs
+//= require jquery.ui.all
 //= require popper.min
 //= require bootstrap.min
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
+//= require turbolinks
+//= require_tree .
 
 
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-        $('[data-toggle="popover"]').popover();
-    })
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+      $('[data-toggle="popover"]').popover();
+  })
+})
+
+document.addEventListener("turbolinks:load", function() {
+  $(function () {
+    require("packs/custom");
+  })
 })
 require("trix")
 require("@rails/actiontext")

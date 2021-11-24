@@ -16,12 +16,12 @@
     <%= form.select :support_request_type_id, SupportRequestType.pluck(:name, :id) || SupportRequest::TYPES, {}, class: "form-control" %>
   </div>
 
-  <div class="field" class="form-group display-none">
+  <div class="field form-group display-none start-date">
     <%= form.label :start_date %>
     <%= form.text_field :start_date, class: "form-control datepicker" %>
   </div>
 
-  <div class="field" class="form-group">
+  <div class="field form-group end-date">
     <%= form.label :end_date %>
      <%= form.text_field :end_date, class: "form-control datepicker" %>
   </div>

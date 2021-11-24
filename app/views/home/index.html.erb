@@ -16,7 +16,7 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                         clock in or clock out Call</div>
-                                                        1-888-543-9406
+                                                        <span class="fonts--size">1-888-543-9406</span>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-phone fa-2x text-gray-300"></i>
@@ -50,9 +50,9 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    Resume</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                    <%= current_user.bio.present? ? "View" : "Not Setup" %>
+                                                    CAREGIVER BIO AND PROFILE PICTURE</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800 fonts--size">
+                                                    VIEW AND EDIT
                                                 </div>
                                             </div>
                                             <div class="col-auto">
@@ -65,8 +65,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Resume</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= link_to current_user.bio.present? ? "View" : "Not Setup", edit_user_path(current_user, {"bio":true}) %></div>
+                                                BIO AND PROFILE PICTURE</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= link_to "VIEW AND EDIT", edit_user_path(current_user, {"bio":true}) %></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-address-card fa-2x text-gray-300"></i>
@@ -83,18 +83,11 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Docs
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 </div>
                                                 <div class="row no-gutters align-items-center">
                                                     <div class="col-auto">
-                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%= current_user.user_docs.count %></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="progress progress-sm mr-2">
-                                                            <div class="progress-bar bg-info" role="progressbar"
-                                                                style="width: <%= (current_user.user_docs.count * 100 / 4)  %>%" aria-valuenow="<%= (current_user.user_docs.count * 100 / 4)  %>" aria-valuemin="0"
-                                                                aria-valuemax="100"></div>
-                                                        </div>
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 fonts--size">YOUR DOCUMENTS</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,7 +100,7 @@
                                 <div class="card-body d-hide">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Docs
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">YOUR DOCUMENTS
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -116,7 +109,7 @@
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: <%= (current_user.user_docs.count * 100 / 4)  %>%" aria-valuenow="<%= (current_user.user_docs.count * 100 / 4)  %>" aria-valuemin="0"
+                                                            style="width: <%= (current_user.user_docs.count * 100 / 4)  %>" aria-valuenow="<%= (current_user.user_docs.count * 100 / 4)  %>" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
@@ -138,8 +131,8 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                    Pending Requests</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%= current_user.support_requests.open.count %></div>
+                                                    </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800 fonts--size">YOUR SUPPORT REQUESTS</div>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -151,7 +144,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
+                                                YOUR SUPPORT REQUESTS</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><%= link_to current_user.support_requests.open.count, support_requests_path %></div>
                                         </div>
                                         <div class="col-auto">
@@ -176,8 +169,8 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Notification of material event</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>Please download the instructions for notification of material event of change in client condition below</p>
-                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href=" https://forms.gle/mE7MS9TKoCC7EVjJA">Notification of material event
+                                    <p>To Notify Care Mountain Of Any Material Event In Client Condition, Use The Form Below</p>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href=" https://forms.gle/mE7MS9TKoCC7EVjJA">Change in Client Condition Form
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -186,11 +179,11 @@
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Instructions for clocking in and out</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">INSTRUCTIONS FOR CLOCKING IN AND OUT</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>Please download the instructions to request for clocking in and out from the link below</p>
-                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://s3-us-west-1.amazonaws.com/public.caregiverportal.lcnurseworks/CG+Clock+in+and+clock+out.pdf">Instructions for clocking in and out
+                                    <p>Instructions on clocking in and out of shift</p>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://s3-us-west-1.amazonaws.com/public.caregiverportal.lcnurseworks/CG+Clock+in+and+clock+out.pdf">Clocking in and out Instructions
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -207,8 +200,8 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Caregiver Contractor handbook</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>Please download the Caregiver Contractor handbook from the link below</p>
-                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://s3-us-west-1.amazonaws.com/public.caregiverportal.lcnurseworks/Caregiver_Contractor_HANDBOOK.pdf">Caregiver Contractor handbook
+                                    <p>Download Current Caregiver Contractor Handbook</p>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://s3-us-west-1.amazonaws.com/public.caregiverportal.lcnurseworks/Caregiver_Contractor_HANDBOOK.pdf">Caregiver Contractor Handbook
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -220,8 +213,8 @@
                                     <h6 class="m-0 font-weight-bold text-primary">CNA Skills Assessment</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>Please download the CNA Skills Assessment from the link below</p>
-                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://s3-us-west-1.amazonaws.com/public.caregiverportal.lcnurseworks/Caregiver+Skills+Self+Assessment.pdf">CNA Skills Assessment
+                                    <p>To Submit CNA Skills Assessment, Use The Form Below</p>
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="https://s3-us-west-1.amazonaws.com/public.caregiverportal.lcnurseworks/Caregiver+Skills+Self+Assessment.pdf">CNA Skills Assessment Form
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                     </a>
                                 </div>
