@@ -36,6 +36,7 @@ class SupportRequestsController < ApplicationController
   # GET /support_requests/new
   def new
     @support_request = SupportRequest.new
+    @support_request_type_id = SupportRequestType.where(name: 'Time off notification').pluck(:id)
   end
 
   # GET /support_requests/1/edit
