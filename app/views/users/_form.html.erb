@@ -43,11 +43,6 @@
         <%= form.label "Currently Active" %>
         <%= form.select :deactivated, options_for_select([['Yes',false],['No',true]], selected: @user.deactivated), {}, {class: "form-control"} %>
       </div>
-
-      <div class="field" class="form-group">
-        <%= form.label :earnings %>
-        <%= form.number_field :earnings, step: :any, class: "form-control" %>
-      </div>
     <% end %>
 
     <div class="field" class="form-group">
