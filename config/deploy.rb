@@ -2,7 +2,7 @@
 lock "~> 3.16.0"
 
 set :application, "NurseWorks"
-set :repo_url, "https://github.com/hamza12233/NurseWorks-CareGiver-Portal-"
+set :repo_url, "https://github.com/marslan7/nurseworks.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
