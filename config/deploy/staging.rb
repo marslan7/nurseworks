@@ -6,7 +6,7 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server "54.176.11.192", user: "ubuntu", roles: %w{app db web}
+server "52.52.44.221", user: "ubuntu", roles: %w{app db web}
 
 
 # role-based syntax
@@ -42,7 +42,7 @@ server "54.176.11.192", user: "ubuntu", roles: %w{app db web}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(~/.ssh/NurseWorks.pem),
+   keys: %w(~/Downloads/NurseWorks.pem),
    forward_agent: false,
    auth_methods: %w(publickey)
  }
