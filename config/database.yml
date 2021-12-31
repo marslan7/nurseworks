@@ -10,7 +10,6 @@ default: &default
   encoding: utf8
   username: root
   password: password
-  socket: /var/lib/mysqld/mysqld.sock
 
   host: localhost
   # port: 3306
