@@ -10,23 +10,21 @@
      <%= form.text_field :end_date, class: "form-control datepicker col-md-6", autocomplete:"off" %>
   </div>
 
-  <%= form.submit "Time Of Notification Requests", class: "btn btn-primary btn-sm mb-5" %>
+  <%= form.submit "Time Off Notification Requests", class: "btn btn-primary btn-sm mb-5" %>
 <% end %>
 
 
 <% if params["user"] %>
-
-<%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @time_of_notifications) do |date, meetings| %>
-  <%= date %>
-<% color = ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info"] %>
-  <% meetings.each do |meeting| %>
-    <% name = meeting.user.first_name %>
-    <div class="<%= color[name.length % color.length] %>">
-      <%=link_to name, user_path(meeting.user) %>
-    </div>
+  <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @time_of_notifications) do |date, meetings| %>
+    <%= date %>
+  <% color = ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info"] %>
+    <% meetings.each do |meeting| %>
+      <% name = meeting.user.first_name %>
+      <div class="<%= color[name.length % color.length] %>">
+        <%=link_to name, user_path(meeting.user) %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-
 <% end %>
 
 
