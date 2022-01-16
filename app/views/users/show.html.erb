@@ -153,7 +153,7 @@
                     <tr>
                     <td><%= assign_requests.id %></td>
                     <td><%= assign_requests.support_request.id %></td>
-                    <td><%= link_to assign_requests.support_request.req_type, support_request_path(assign_requests.support_request) %></td>
+                    <td><%= link_to assign_requests.support_request_type.name, support_request_path(assign_requests.support_request) %></td>
                     </tr>
                 <% end %>
             </tbody>
