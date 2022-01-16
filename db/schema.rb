@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_083446) do
+ActiveRecord::Schema.define(version: 2022_01_16_164240) do
 
   create_table "action_text_rich_texts", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -50,15 +50,13 @@ ActiveRecord::Schema.define(version: 2021_11_20_083446) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "assign_supporting_docs", charset: "utf8mb3", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "support_request_id", null: false
-    t.bigint "super_admin_id", null: false
+  create_table "assign_support_requests", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "support_request_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["super_admin_id"], name: "index_assign_supporting_docs_on_super_admin_id"
-    t.index ["support_request_id"], name: "index_assign_supporting_docs_on_support_request_id"
-    t.index ["user_id"], name: "index_assign_supporting_docs_on_user_id"
+    t.index ["support_request_id"], name: "index_assign_support_requests_on_support_request_id"
+    t.index ["user_id"], name: "index_assign_support_requests_on_user_id"
   end
 
   create_table "delayed_jobs", charset: "utf8mb3", force: :cascade do |t|
