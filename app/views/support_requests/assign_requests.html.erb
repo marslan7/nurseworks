@@ -61,7 +61,7 @@
                 <% @support_request.assign_support_requests.each do |assign_requests| %>
                     <tr>
                     <td><%= assign_requests.id %></td>
-                    <td><%= assign_requests.support_request.req_type %></td>
+                    <td><%= assign_requests.support_request.support_request_type.name %></td>
                     <td><%= assign_requests.user.email %></td>
                     </tr>
                 <% end %>
