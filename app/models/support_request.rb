@@ -24,6 +24,7 @@ class SupportRequest < ApplicationRecord
     belongs_to :user
     belongs_to :support_request_type
     belongs_to :updated_by, class_name: "User", optional: true
+    has_many :assign_support_requests
 
     has_one_attached :supporting_doc
 

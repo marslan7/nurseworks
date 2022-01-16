@@ -57,7 +57,6 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-
         <td><%= user.id %></td>
         <td><%= link_to user.first_name, user %></td>
         <td class="d-none d-sm-table-cell"><%= user.last_name %></td>
@@ -72,9 +71,6 @@
         <% if current_user.role == "Super User"%>
           <td class="d-none d-sm-table-cell">
             <%= link_to 'Change Password', edit_admin_user_path(user), class: "btn btn-primary btn-sm" %>
-          </td>
-          <td class="d-none d-sm-table-cell">
-            <%= link_to 'Assign Request', admin_user_assign_supporting_doc_path(user), class: "btn btn-primary btn-sm" %>
           </td>
         <% end %>
       </tr>

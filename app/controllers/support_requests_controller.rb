@@ -1,5 +1,6 @@
 class SupportRequestsController < ApplicationController
   # before_action :set_support_request, only: %i[ show edit update destroy ]
+  before_action :set_support_request, only: %i[ assign_requests admin_assign_requests ]
   before_action :support_request_types, only: %i[new edit destroy ]
   load_and_authorize_resource :except => ["index", "search"]
 
@@ -73,6 +74,22 @@ class SupportRequestsController < ApplicationController
     end
   end
 
+  def assign_requests
+    @assign_request = AssignSupportRequest.new
+    @super_users = User.where(role:"Super User")
+  end
+
+  def admin_assign_requests
+    @assign_request = @support_request.assign_support_requests.new(assign_requests_params)
+    @super_users = User.where.not(role:"User")
+
+    if @assign_request.save
+      redirect_to support_requests_url, notice: "Support Request Assign to #{ @assign_request.user.email }."
+    else
+      render "assign_requests"
+    end
+  end
+
   # DELETE /support_requests/1 or /support_requests/1.json
   def destroy
     @support_request.destroy
@@ -85,12 +102,16 @@ class SupportRequestsController < ApplicationController
 
   private
 
+    def assign_requests_params
+      params.require(:assign_support_request).permit(:user_id, :support_request_id)
+    end
+
     def support_request_types
       @super_user = User.find_by(role: "Super User")
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_support_request
-      @support_request = SupportRequest.find(params[:id])
+      @support_request = SupportRequest.find(params[:support_request_id])
     end
 
     # Only allow a list of trusted parameters through.

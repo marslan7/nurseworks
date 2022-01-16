@@ -134,3 +134,29 @@
   </div>
 
 <% end %>
+
+<% user_role = @user.role == "Super User" || @user.role == "Manager" %>
+<% if @user.assign_support_requests.present? && user_role %>
+  <h1 class="font-bold mb-3 mt-3 text-center">Assign Requests</h1>
+    <div id="assign_requests">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                <th>Assign Req#</th>
+                <th>Support Req#</th>
+                <th>Req Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @user.assign_support_requests.each do |assign_requests| %>
+                    <tr>
+                    <td><%= assign_requests.id %></td>
+                    <td><%= assign_requests.support_request.id %></td>
+                    <td><%= link_to assign_requests.support_request.req_type, support_request_path(assign_requests.support_request) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+<%end%>

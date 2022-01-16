@@ -27,6 +27,11 @@
             <%= link_to 'Edit', edit_support_request_path(support_request), class: "btn btn-primary btn-sm" %>
             <%= link_to 'Delete', support_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
           </td>
+          <% if current_user.role == "Super User"%>
+            <td class="d-none d-sm-table-cell">
+              <%= link_to 'Assign Request', support_request_assign_requests_path(support_request), class: "btn btn-primary btn-sm" if current_page?(support_requests_url) %>
+            </td>
+           <% end %>
         </tr>
       <% end %>
     </tbody>
