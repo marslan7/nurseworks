@@ -51,8 +51,9 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                <th>Assign Req#</th>
-                <th>Req Name</th>
+                    <th>Assign Req#</th>
+                    <th>Req Name</th>
+                    <th>Assign To</th>
                 </tr>
             </thead>
 
@@ -60,6 +61,7 @@
                 <% @support_request.assign_support_requests.each do |assign_requests| %>
                     <tr>
                     <td><%= assign_requests.id %></td>
+                    <td><%= assign_requests.support_request.req_type %></td>
                     <td><%= assign_requests.user.email %></td>
                     </tr>
                 <% end %>
