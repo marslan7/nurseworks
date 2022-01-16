@@ -144,6 +144,7 @@
                 <tr>
                 <th>Assign Req#</th>
                 <th>Support Req#</th>
+                <th>Status</th>
                 <th>Req Name</th>
                 </tr>
             </thead>
@@ -153,6 +154,7 @@
                     <tr>
                     <td><%= assign_requests.id %></td>
                     <td><%= assign_requests.support_request.id %></td>
+                    <td><%= assign_requests.support_request.status %></td>
                     <td><%= link_to assign_requests.support_request.support_request_type.name, support_request_path(assign_requests.support_request) %></td>
                     </tr>
                 <% end %>

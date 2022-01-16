@@ -52,6 +52,7 @@
             <thead>
                 <tr>
                     <th>Assign Req#</th>
+                    <th>Status</th>
                     <th>Req Name</th>
                     <th>Assign To</th>
                 </tr>
@@ -61,6 +62,7 @@
                 <% @support_request.assign_support_requests.each do |assign_requests| %>
                     <tr>
                     <td><%= assign_requests.id %></td>
+                    <td><%= assign_requests.support_request.status %></td>
                     <td><%= assign_requests.support_request.support_request_type.name %></td>
                     <td><%= assign_requests.user.email %></td>
                     </tr>
