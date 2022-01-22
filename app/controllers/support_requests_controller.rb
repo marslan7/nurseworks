@@ -10,10 +10,10 @@ class SupportRequestsController < ApplicationController
 
     @support_requests = @support_requests.open if params[:open].present?
     @support_requests = @support_requests.closed if params[:closed].present?
-    dir = params[:dir] || "asc"
+    dir = params[:dir] || "desc"
     order_by = params[:order_by] || "support_requests.id"
     order_by += " " + dir
-    @dir = (dir == "asc") ? "desc" : "asc"
+    @dir = (dir == "desc") ? "asc" : "desc"
 
     # time_of_notifications =  SupportRequest.include(:users).where("request_type = 6")
 

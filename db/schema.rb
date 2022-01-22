@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_19_194415) do
+ActiveRecord::Schema.define(version: 2022_01_22_071402) do
 
   create_table "action_text_rich_texts", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -59,17 +59,6 @@ ActiveRecord::Schema.define(version: 2021_11_19_194415) do
     t.index ["user_id"], name: "index_assign_support_requests_on_user_id"
   end
 
-  create_table "assign_supporting_docs", charset: "utf8mb3", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "support_request_id", null: false
-    t.bigint "super_admin_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["super_admin_id"], name: "index_assign_supporting_docs_on_super_admin_id"
-    t.index ["support_request_id"], name: "index_assign_supporting_docs_on_support_request_id"
-    t.index ["user_id"], name: "index_assign_supporting_docs_on_user_id"
-  end
-
   create_table "delayed_jobs", charset: "utf8mb3", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -83,6 +72,13 @@ ActiveRecord::Schema.define(version: 2021_11_19_194415) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "document_types", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.string "alias"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "support_request_types", charset: "utf8mb3", force: :cascade do |t|
@@ -114,6 +110,8 @@ ActiveRecord::Schema.define(version: 2021_11_19_194415) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "document_type_id", null: false
+    t.index ["document_type_id"], name: "index_user_docs_on_document_type_id"
     t.index ["user_id"], name: "index_user_docs_on_user_id"
   end
 

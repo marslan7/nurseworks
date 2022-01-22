@@ -61,14 +61,26 @@
     </td>
 </tr>
 
+<% if (@support_request.start_date && @support_request.end_date).present? %>
+  <tr>
+    <td><strong>Start Date:</strong></td>
+    <td><%= @support_request.start_date.strftime("%Y-%m-%d")  %></td>
+  </tr>
+
+  <tr>
+    <td><strong>End Date</strong></td>
+    <td><%= @support_request.end_date.strftime("%Y-%m-%d") %></td>
+  </tr>
+<% end %>
+
 <tr>
-  <td><strong>Created:</strong></td> 
+  <td><strong>Created:</strong></td>
   <td><%= @support_request.created_at.strftime("%Y-%m-%d %H:%M") %></td>
 </tr>
 
 <tr>
-  <td><strong>Updated:</strong></td> 
-  <td><%= @support_request.updated_at.strftime("%Y-%m-%d %H:%M") %></td>          
+  <td><strong>Updated:</strong></td>
+  <td><%= @support_request.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
 </tr>
 
 
@@ -84,4 +96,4 @@
 <% end %>
 
 
-</table> 
+</table>
