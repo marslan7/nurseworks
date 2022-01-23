@@ -23,11 +23,15 @@ class UserDoc < ApplicationRecord
     validate :acceptable_attachment
 
     def acceptable_attachment
-        return unless attachment.attached?
-
-        unless attachment.byte_size <= 5.megabyte
-            errors.add(:attachment, "is too big. Must be less than 5 MB")
+        if self.attachment.attached?
+            return true
+        else
+            errors.add(:attachment, "required")
         end
+
+        # unless self.attachment.byte_size <= 5.megabyte
+        #     errors.add(:attachment, "is too big. Must be less than 5 MB")
+        # end
     end
 
 end

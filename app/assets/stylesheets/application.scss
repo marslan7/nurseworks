@@ -13,6 +13,7 @@
  *= require_tree .
  *= require bootstrap-datepicker
  *= require_self
+
  */
 
  @import "./actiontext.scss";
@@ -46,14 +47,30 @@ a:visited, a:hover {
     width: 100%;
 }
 
+p#notice {
+    font-size: 18px;
+    color: green;
+    padding: 10px;
+}
+
 // mobile secren
 @media (min-width:320px) and (max-width:768px) {
     .d-hide{
       display: none;
     }
 
+    p#notice {
+        font-size: 12px;
+        color: green;
+        padding: 5px;
+    }
+
     .card-body [class="btn btn-primary btn-lg"]{
         margin-top: 10px;
         font-size: 1rem !important;
+    }
+
+    .fonts--size{
+        font-size: 16px !important;
     }
   }
