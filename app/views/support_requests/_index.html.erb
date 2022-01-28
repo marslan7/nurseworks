@@ -22,7 +22,7 @@
           <td class="d-none d-sm-table-cell"><%= link_to "Download", rails_blob_url(support_request.supporting_doc, disposition: "attachment") if support_request.supporting_doc.attached? %></td>
           <td class="d-none d-sm-table-cell"><%= support_request.status %></td>
           <td><%= link_to support_request.user.full_name, user_path(support_request.user) %></td>
-          <td class="d-none d-sm-table-cell"><%= support_request.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td class="d-none d-sm-table-cell"><%= support_request.updated_at.strftime("%m-%d-%Y %H:%M") %></td>
           <td class="d-none d-sm-table-cell">
             <%= link_to 'Edit', edit_support_request_path(support_request), class: "btn btn-primary btn-sm" %>
             <%= link_to 'Delete', support_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>

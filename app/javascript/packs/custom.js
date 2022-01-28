@@ -17,7 +17,7 @@ document.addEventListener("turbolinks:load", function() {
 
   $(function(){
     $('.datepicker').datepicker({
-      format: 'yyyy-mm-dd'
+      format: 'mm-dd-yyyy'
     });
   });
 });

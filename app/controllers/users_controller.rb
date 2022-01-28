@@ -14,8 +14,10 @@ class UsersController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
 
     if (params["user"] && params["user"]["start_date"] && params["user"]["end_date"]).present?
-      @number_of_days = (params["user"]["end_date"].to_date - params["user"]["start_date"].to_date) + 1
-      @time_of_notifications =  SupportRequest.includes(:user).where(support_request_type_id: type_id).where("start_date >= ? && end_date <=?", params["user"]["start_date"].to_date, params["user"]["end_date"].to_date)
+      start_date = Date.strptime(params["user"]["start_date"], "%m-%d-%Y")
+      end_date = Date.strptime(params["user"]["end_date"], "%m-%d-%Y")
+      @number_of_days = (start_date.to_date - end_date.to_date) + 1
+      @time_of_notifications =  SupportRequest.includes(:user).where(support_request_type_id: type_id).where("start_date >= ? && end_date <=?", start_date.to_date, end_date.to_date)
     else
       start_date = Date.today.beginning_of_month
       end_date = Date.today.end_of_month

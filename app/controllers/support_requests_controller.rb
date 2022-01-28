@@ -48,6 +48,8 @@ class SupportRequestsController < ApplicationController
   def create
     @support_request = SupportRequest.new(support_request_params)
     @support_request.user_id = current_user.id
+    @support_request.start_date = Date.strptime(params[:support_request][:start_date], "%m-%d-%Y")
+    @support_request.end_date = Date.strptime(params[:support_request][:end_date], "%m-%d-%Y")
 
     respond_to do |format|
       if @support_request.save

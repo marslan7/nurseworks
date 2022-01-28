@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_071402) do
+ActiveRecord::Schema.define(version: 2022_01_28_062621) do
 
   create_table "action_text_rich_texts", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 2022_01_22_071402) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "closed"
     t.integer "updated_by_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.bigint "support_request_type_id", null: false
     t.index ["support_request_type_id"], name: "index_support_requests_on_support_request_type_id"
     t.index ["updated_by_id"], name: "index_support_requests_on_updated_by_id"
