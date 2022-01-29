@@ -1,14 +1,14 @@
 <%= form_with(model: user_doc) do |form| %>
   <% if user_doc.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user_doc.errors.count, "error") %> prohibited this user_doc from being saved:</h2>
-
-      <ul>
-        <% user_doc.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+      <div class="alert alert-danger">
+          <ul>
+            <% user_doc.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          <button type="button" class="close close--icon" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </ul>
+      </div>
   <% end %>
 
   <div class="field" class="form-group">

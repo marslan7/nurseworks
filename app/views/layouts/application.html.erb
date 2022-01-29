@@ -47,7 +47,8 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <p id="alert"><%= alert %></p>
+                    <!-- error messages partial -->
+                    <%= render "layouts/partials/error_messages" %>
                     <%= yield %>
 
                 </div>

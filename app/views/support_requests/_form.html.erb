@@ -1,14 +1,14 @@
 <%= form_with(model: support_request) do |form| %>
   <% if support_request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(support_request.errors.count, "error") %> prohibited this support_request from being saved:</h2>
-
-      <ul>
-        <% support_request.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+      <div class="alert alert-danger">
+        <ul>
+          <% support_request.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+       </ul>
+        <button type="button" class="close close--icon" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+     </div>
   <% end %>
   <%= form.hidden_field :support_request_type__id, value: @support_request_type_id %>
   <div class="field" class="form-group">
@@ -46,3 +46,14 @@
 <button type="submit" id="save_support_request" class="btn btn-primary">Save</button>
 
 <% end %>
+
+<script>
+  console.log('dcsdncskjncskdjn');
+  var startDate = document.getElementsByClassName("start-date")[0];
+  var endDate = document.getElementsByClassName("end-date")[0];
+  var support_req = document.getElementById("support_request_support_request_type_id").selectedOptions[0].innerText;
+  if (support_req != "Time off notification"){
+    startDate.style.display = 'none';
+    endDate.style.display = 'none';
+  }
+</script>

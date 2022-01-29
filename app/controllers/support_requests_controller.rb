@@ -42,14 +42,17 @@ class SupportRequestsController < ApplicationController
 
   # GET /support_requests/1/edit
   def edit
+    @support_request_type_id = SupportRequestType.where(name: 'Time off notification').pluck(:id)
   end
 
   # POST /support_requests or /support_requests.json
   def create
     @support_request = SupportRequest.new(support_request_params)
     @support_request.user_id = current_user.id
-    @support_request.start_date = Date.strptime(params[:support_request][:start_date], "%m-%d-%Y")
-    @support_request.end_date = Date.strptime(params[:support_request][:end_date], "%m-%d-%Y")
+    if @support_request.start_date.present? && @support_request.start_date.present?
+      @support_request.start_date = Date.strptime(params[:support_request][:start_date], "%m-%d-%Y")
+      @support_request.end_date = Date.strptime(params[:support_request][:end_date], "%m-%d-%Y")
+    end
 
     respond_to do |format|
       if @support_request.save
@@ -96,7 +99,7 @@ class SupportRequestsController < ApplicationController
   def destroy
     @support_request.destroy
     respond_to do |format|
-      format.html { redirect_to support_requests_url, notice: "Support request was successfully destroyed." }
+      format.html { redirect_to support_requests_url, notice: "Support request was successfully deleted." }
       format.json { head :no_content }
     end
   end

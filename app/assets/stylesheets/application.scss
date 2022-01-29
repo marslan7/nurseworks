@@ -53,6 +53,12 @@ p#notice {
     padding: 10px;
 }
 
+.close--icon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
 // mobile secren
 @media (min-width:320px) and (max-width:768px) {
     .d-hide{

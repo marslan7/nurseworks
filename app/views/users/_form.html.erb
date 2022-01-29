@@ -1,13 +1,13 @@
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="alert alert-danger">
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+       </ul>
+        <button type="button" class="close close--icon" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
     </div>
   <% end %>
 

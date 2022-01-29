@@ -21,7 +21,7 @@ class Admin::UsersController < ApplicationController
     @support_request_type = SupportRequestType.new(support_request_params)
 
     if @support_request_type.save
-      flash[:notice] = "Successfully Create Support Request Type"
+      flash[:notice] = "Successfully Created Support Request Type"
       redirect_to support_requests_path
     else
       render :new_support_req_type

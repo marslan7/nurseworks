@@ -2,7 +2,7 @@ class SupportRequestType < ApplicationRecord
   has_many :support_requests
   before_create :validate_sanitize
 
-  validates :name, uniqueness: true
+  validates :name, uniqueness: true, presence: true
 
 
   private

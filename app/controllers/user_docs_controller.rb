@@ -45,7 +45,7 @@ class UserDocsController < ApplicationController
 
     respond_to do |format|
       if @user_doc.save
-        format.html { redirect_to @user_doc, notice: "User doc was successfully created." }
+        format.html { redirect_to @user_doc, notice: "User document was successfully created." }
         format.json { render :show, status: :created, location: @user_doc }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class UserDocsController < ApplicationController
   def update
     respond_to do |format|
       if @user_doc.update(user_doc_params)
-        format.html { redirect_to @user_doc, notice: "User doc was successfully updated." }
+        format.html { redirect_to @user_doc, notice: "User document was successfully updated." }
         format.json { render :show, status: :ok, location: @user_doc }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -71,7 +71,7 @@ class UserDocsController < ApplicationController
   def destroy
     @user_doc.destroy
     respond_to do |format|
-      format.html { redirect_to user_docs_url, notice: "User doc was successfully destroyed." }
+      format.html { redirect_to user_docs_url, notice: "User document was successfully deleted." }
       format.json { head :no_content }
     end
   end
