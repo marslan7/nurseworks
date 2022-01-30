@@ -16,8 +16,8 @@
 
 <% if params["user"] %>
   <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @time_of_notifications) do |date, meetings| %>
-    <%= date %>
-  <% color = ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info"] %>
+    <%= date.to_formatted_s(:short) %>
+    <% color = ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info"] %>
     <% meetings.each do |meeting| %>
       <% name = meeting.user.first_name %>
       <div class="<%= color[name.length % color.length] %>">

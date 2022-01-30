@@ -59,6 +59,14 @@ p#notice {
     top: 10px;
 }
 
+.calendar-heading{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 16px;
+    color: black;
+}
+
 // mobile secren
 @media (min-width:320px) and (max-width:768px) {
     .d-hide{
