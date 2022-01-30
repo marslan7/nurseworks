@@ -49,10 +49,6 @@ class SupportRequestsController < ApplicationController
   def create
     @support_request = SupportRequest.new(support_request_params)
     @support_request.user_id = current_user.id
-    if @support_request.start_date.present? && @support_request.start_date.present?
-      @support_request.start_date = Date.strptime(params[:support_request][:start_date], "%m-%d-%Y")
-      @support_request.end_date = Date.strptime(params[:support_request][:end_date], "%m-%d-%Y")
-    end
 
     respond_to do |format|
       if @support_request.save
@@ -68,6 +64,7 @@ class SupportRequestsController < ApplicationController
   # PATCH/PUT /support_requests/1 or /support_requests/1.json
   def update
     @support_request.updated_by = current_user
+
     respond_to do |format|
       if @support_request.update(support_request_params)
         format.html { redirect_to @support_request, notice: "Support request was successfully updated." }
@@ -121,6 +118,6 @@ class SupportRequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def support_request_params
-      params.require(:support_request).permit(:req_type, :supporting_doc, :content, :closed, :start_date, :end_date, :support_request_type_id)
+      params.require(:support_request).permit(:req_type, :supporting_doc, :content, :closed, :end_date, :start_date, :support_request_type_id)
     end
 end
