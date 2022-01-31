@@ -67,6 +67,10 @@ p#notice {
     color: black;
 }
 
+.trix-button-row{
+    display: none !important;
+}
+
 // mobile secren
 @media (min-width:320px) and (max-width:768px) {
     .d-hide{
