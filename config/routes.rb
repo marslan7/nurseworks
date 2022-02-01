@@ -12,11 +12,10 @@ Rails.application.routes.draw do
     post :admin_assign_requests
   end
 
+  resources :support_request_types
   namespace :admin do
     resources :users, only: %i[edit update] do
       collection do
-        get :new_support_req_type
-        post :create_support_req_type
         get :new_document_type
         post :create_document_type
       end

@@ -13,21 +13,6 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def new_support_req_type
-    @support_request_type = SupportRequestType.new
-  end
-
-  def create_support_req_type
-    @support_request_type = SupportRequestType.new(support_request_params)
-
-    if @support_request_type.save
-      flash[:notice] = "Successfully Created Support Request Type"
-      redirect_to support_requests_path
-    else
-      render :new_support_req_type
-    end
-  end
-
   def new_document_type
     @document_type = DocumentType.new
   end
@@ -42,7 +27,6 @@ class Admin::UsersController < ApplicationController
       render :new_document_type
     end
   end
-
 
   private
 
@@ -61,10 +45,6 @@ class Admin::UsersController < ApplicationController
 
   def document_type_params
     params.require(:document_type).permit(:name)
-  end
-
-  def support_request_params
-    params.require(:support_request_type).permit(:name)
   end
 
   def user_doc_params
