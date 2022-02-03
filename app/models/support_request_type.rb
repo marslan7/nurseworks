@@ -15,7 +15,7 @@ class SupportRequestType < ApplicationRecord
 
   def can_destroy?
     if self.support_requests.present?
-      self.errors.add(:base, "can't delete because support exist agains this request type")
+      self.errors.add(:base, "can't delete because support request exist agains this request type")
       throw :abort
     end
   end

@@ -3,6 +3,7 @@ class SupportRequestsController < ApplicationController
   before_action :set_support_request, only: %i[ assign_requests admin_assign_requests ]
   before_action :support_request_types, only: %i[new edit destroy ]
   load_and_authorize_resource :except => ["index", "search"]
+  require 'chronic'
 
   # GET /support_requests or /support_requests.json
   def index
@@ -49,6 +50,13 @@ class SupportRequestsController < ApplicationController
   def create
     @support_request = SupportRequest.new(support_request_params)
     @support_request.user_id = current_user.id
+    start_date = params[:support_request][:start_date]
+    end_date = params[:support_request][:end_date]
+
+    if (start_date && end_date).present?
+      @support_request.start_date = Chronic.parse(start_date) if start_date.present?
+      @support_request.end_date = Chronic.parse(end_date) if end_date.present?
+    end
 
     respond_to do |format|
       if @support_request.save

@@ -61,7 +61,7 @@
         <td class="d-none d-sm-table-cell"><%= user.active_status %></td>
         <td class="d-none d-sm-table-cell"><%= user.phone %></td>
         <td class="d-none d-sm-table-cell"><%= user.role %></td>
-        <td class="d-none d-sm-table-cell"><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td class="d-none d-sm-table-cell"><%= user.created_at.strftime("%m-%d-%Y") %></td>
         <td class="d-none d-sm-table-cell">
           <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary btn-sm" %>
         </td>

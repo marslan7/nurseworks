@@ -15,7 +15,7 @@
     <strong>Request:</strong>
   </td>
   <td>
-      <%= @support_request.req_type %>
+      <%= @support_request.support_request_type.name %>
     </td>
 </tr>
 
@@ -75,12 +75,12 @@
 
 <tr>
   <td><strong>Created:</strong></td>
-  <td><%= @support_request.created_at.strftime("%m-%d-%Y %H:%M") %></td>
+  <td><%= @support_request.created_at.strftime("%m-%d-%Y") %></td>
 </tr>
 
 <tr>
   <td><strong>Updated:</strong></td>
-  <td><%= @support_request.updated_at.strftime("%m-%d-%Y %H:%M") %></td>
+  <td><%= @support_request.updated_at.strftime("%m-%d-%Y") %></td>
 </tr>
 
 
