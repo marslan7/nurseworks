@@ -13,9 +13,15 @@ class UsersController < ApplicationController
     type_id = SupportRequestType.find_by(alias: "time off notification").id
     start_date = params.fetch(:start_date, Date.today).to_date
 
-    if params["user"] && params["user"]["start_date"] && params["user"]["end_date"]
-      @number_of_days = (params["user"]["end_date"].to_date - params["user"]["start_date"].to_date) + 1
-      @time_of_notifications =  SupportRequest.includes(:user).where(support_request_type_id: type_id).where("start_date >= ? && end_date <=?", params["user"]["start_date"].to_date, params["user"]["end_date"].to_date)
+    if (params["user"] && params["user"]["start_date"] && params["user"]["end_date"]).present?
+      start_date = params["user"]["start_date"]
+      end_date = params["user"]["end_date"]
+      @number_of_days = (start_date.to_date - end_date.to_date) + 1
+      @time_of_notifications =  SupportRequest.includes(:user).where(support_request_type_id: type_id).where("start_date >= ? && end_date <=?", start_date.to_date, end_date.to_date)
+    else
+      start_date = Date.today.beginning_of_month
+      end_date = Date.today.end_of_month
+      @time_of_notifications =  SupportRequest.includes(:user).where(support_request_type_id: type_id).where("start_date >= ? && end_date <=?", start_date, end_date )
     end
 
     @users = User.order(order_by).page(params[:page])
@@ -99,7 +105,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "User was successfully deleted." }
       format.json { head :no_content }
     end
   end

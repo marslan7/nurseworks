@@ -1,0 +1,84 @@
+<% if @assign_request.errors.any? %>
+    <%= render 'devise/shared/error_messages', resource: @assign_request %>
+<% end %>
+<%= form_for [:admin, @assign_request], url: support_request_admin_assign_requests_path do |f| %>
+  <div class="container">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                  <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Assign Support Request </h1>
+                            </div>
+                                <form class="user">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4 mb-3 mb-sm-0 form-control form-control-user form-select-request">
+                                                <%=  @support_request.user.full_name %>
+                                            </div>
+                                            <div class="col-sm-7 mb-3 mb-sm-0 form-control form-control-user form-select-request ml-2">
+                                                <%=  @support_request.req_type %>
+                                            </div>
+                                        </div>
+                                        <% if (@support_request.start_date && @support_request.end_date).present? %>
+                                            <div class="row mb-5">
+                                                <div class="col-sm-5 mb-3 mb-sm-0 form-control form-control-user form-select-request ml-2">
+                                                    Start Date: <%=  @support_request.start_date.to_date if @support_request.start_date.present? %>
+                                                </div>
+                                                <div class="col-sm-5 mb-3 mb-sm-0 form-control form-control-user form-select-request ml-2">
+                                                    End Date: <%=  @support_request.end_date.to_date if @support_request.end_date.present? %>
+                                                </div>
+                                            </div>
+                                        <% end %>
+                                        <div class="row mb-5">
+                                            Assign to:
+                                            <div class="col-sm-6 mb-3 mb-sm-0 form-control form-control-user form-select-request ml-2">
+                                                <%= f.select :user_id, values: @super_users.pluck(:email, :id)  %>
+                                            </div>
+                                        </div>
+                                    <input type="Submit" id="create_assign_req_btn" class="btn btn-primary btn-user btn-block", value="Assign Request">
+                                </form>
+                        </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+<% end %>
+
+<% if @support_request.assign_support_requests.present? %>
+    <div id="assign_requests">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Assign Req#</th>
+                    <th>Status</th>
+                    <th>Req Name</th>
+                    <th>Assign To</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @support_request.assign_support_requests.each do |assign_requests| %>
+                    <tr>
+                    <td><%= assign_requests.id %></td>
+                    <td><%= assign_requests.support_request.status %></td>
+                    <td><%= assign_requests.support_request.support_request_type.name %></td>
+                    <td><%= assign_requests.user.email %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+<%end%>
+
+<script>
+var assign_request=document.querySelector("#assign_requests");
+var assign_req_btn=document.querySelector("#create_assign_req_btn")
+if (assign_request){
+    assign_req_btn.style.pointerEvents = "none";
+    assign_req_btn.style.opacity = "0.5"
+}
+</script>

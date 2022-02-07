@@ -8,15 +8,14 @@ Rails.application.routes.draw do
 
   resources :support_requests do
     get 'search', on: :collection
+    get :assign_requests
+    post :admin_assign_requests
   end
 
+  resources :support_request_types
   namespace :admin do
     resources :users, only: %i[edit update] do
-      get :assign_supporting_doc
-      post :assign_doc
       collection do
-        get :new_support_req_type
-        post :create_support_req_type
         get :new_document_type
         post :create_document_type
       end

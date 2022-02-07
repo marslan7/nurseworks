@@ -327,6 +327,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
+  chronic
   cypress-on-rails (~> 1.0)
   daemons
   database_cleaner-active_record

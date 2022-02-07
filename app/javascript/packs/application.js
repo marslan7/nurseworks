@@ -41,14 +41,17 @@ document.addEventListener("turbolinks:load", function() {
   $(function () {
     require("packs/custom");
   })
+
+  $(function(){
+    $('.datepicker').datepicker({
+      format: 'mm-dd-yyyy'
+    });
+  });
+
 })
+
 require("trix")
 require("@rails/actiontext")
 
 Turbolinks.setProgressBarDelay(1000)
 
-$(document).ready(function(){
-    $('.datepicker').datepicker({
-      format: 'yyyy-mm-dd'
-    });
-  });

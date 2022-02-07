@@ -1,8 +1,10 @@
 class SupportRequestType < ApplicationRecord
-  has_many :support_requests
   before_create :validate_sanitize
+  before_destroy :can_destroy?
 
-  validates :name, uniqueness: true
+  has_many :support_requests, dependent: :destroy
+
+  validates :name, uniqueness: true, presence: true
 
 
   private
@@ -11,4 +13,10 @@ class SupportRequestType < ApplicationRecord
     self.alias = name.downcase.strip
   end
 
+  def can_destroy?
+    if self.support_requests.present?
+      self.errors.add(:base, "can't delete because support request exist agains this request type")
+      throw :abort
+    end
+  end
 end

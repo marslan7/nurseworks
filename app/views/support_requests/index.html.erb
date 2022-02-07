@@ -1,13 +1,10 @@
-
-
-<p id="notice" class="alert" role="alert"><%= notice %></p>
 <div class="d-sm-flex align-items-center justify-content-between mb-4 mb-md-0">
     <h1 class="h3 mb-4 text-gray-800">Support Requests</h1>
     <span>
         <%= link_to "Completed Requests", support_requests_path(closed:true), class: "btn btn-primary mb-2 mb-md-0" %>
         <%= link_to 'New Support Request', new_support_request_path, id: "new_support_request_btn", class: "btn btn-primary" %>
         <% if current_user.role == "Super User" %>
-            <%= link_to 'New Support Request Type', new_support_req_type_admin_users_path, id: "new_support_request_btn", class: "mt-2 mt-md-0 btn btn-primary" %>
+            <%= link_to 'New Support Request Type', new_support_request_type_path, id: "new_support_request_btn", class: "mt-2 mt-md-0 btn btn-primary" %>
         <% end %>
     </span>
 </div>

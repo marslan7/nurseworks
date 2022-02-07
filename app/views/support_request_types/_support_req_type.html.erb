@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <table id="support_requests_table" class="table table-bordered table-hover sortable">
+    <thead>
+      <tr>
+        <th>Req Type#</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% SupportRequestType.all.each do |support_request_type| %>
+        <tr>
+          <td><%= support_request_type.id %></td>
+          <td><%= support_request_type.name %></td>
+          <td><%= link_to "delete", support_request_type_path(support_request_type.id ), :method => :delete, data: {confirm: 'Are you sure?.'}, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

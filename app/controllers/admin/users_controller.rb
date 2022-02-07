@@ -13,37 +13,6 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def assign_supporting_doc
-    @assign_supporting_doc = AssignSupportingDoc.new
-    @super_user = User.find_by(role: "Super User")
-  end
-
-  def assign_doc
-    @assign_supporting_doc = current_user.admin_assign_supporting_docs.new(assign_supporting_doc_params)
-
-    if @assign_supporting_doc.save
-      flash[:notice] = "Successfully assign to #{@assign_supporting_doc.user.email}"
-      redirect_to users_path
-    else
-      render :assign_supporting_doc
-    end
-  end
-
-  def new_support_req_type
-    @support_request_type = SupportRequestType.new
-  end
-
-  def create_support_req_type
-    @support_request_type = SupportRequestType.new(support_request_params)
-
-    if @support_request_type.save
-      flash[:notice] = "Successfully Create Support Request Type"
-      redirect_to support_requests_path
-    else
-      render :new_support_req_type
-    end
-  end
-
   def new_document_type
     @document_type = DocumentType.new
   end
@@ -58,7 +27,6 @@ class Admin::UsersController < ApplicationController
       render :new_document_type
     end
   end
-
 
   private
 
@@ -75,16 +43,8 @@ class Admin::UsersController < ApplicationController
       :emergency_contact_name, :emergency_contact_phone, :profile_image, :bio, :phone, :password, :password_confirmation)
   end
 
-  def assign_supporting_doc_params
-    params.require(:assign_supporting_doc).permit(:user_id, :support_request_id, :super_admin)
-  end
-
   def document_type_params
     params.require(:document_type).permit(:name)
-  end
-
-  def support_request_params
-    params.require(:support_request_type).permit(:name)
   end
 
   def user_doc_params

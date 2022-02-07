@@ -15,8 +15,7 @@ class User < ApplicationRecord
 
   has_many :support_requests, dependent: :delete_all
   has_many :user_docs, dependent: :delete_all
-  has_many :assign_supporting_docs
-  has_many :admin_assign_supporting_docs, class_name: 'AssignSupportingDoc', foreign_key: 'super_admin_id'
+  has_many :assign_support_requests
 
   has_rich_text :bio
 
