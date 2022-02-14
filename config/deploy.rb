@@ -9,7 +9,7 @@ set :repo_url, "https://github.com/marslan7/nurseworks.git"
 set :branch, 'main'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/ubuntu/NurseWorks"
+set :deploy_to, "/home/ubuntu/NurseWorkss"
 set :ssh_options, forward_agent: :true
 set :ssh_options, keys: "/Users/muhammadarslan/Downloads/NurseWorks.pem"
 
