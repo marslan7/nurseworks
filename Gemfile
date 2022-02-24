@@ -37,8 +37,6 @@ gem 'exception_notification'
 gem "simple_calendar", "~> 2.4"
 gem 'bootstrap-datepicker-rails'
 gem 'chronic'
-gem "will_paginate"
-gem 'will_paginate-bootstrap'
 
 
 gem "aws-sdk-s3", require: false
