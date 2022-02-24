@@ -11,4 +11,4 @@
 
 
 <%= render "index" %>
-<%= paginate @support_requests, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+<%= will_paginate @support_requests, renderer: BootstrapPagination::Rails %>
