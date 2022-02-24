@@ -7,7 +7,7 @@ class SupportRequestsController < ApplicationController
 
   # GET /support_requests or /support_requests.json
   def index
-    @support_requests = SupportRequest.includes(:support_request_type).accessible_by(current_ability).page(params[:page])
+    @support_requests = SupportRequest.includes(:user, :support_request_type).accessible_by(current_ability).page(params[:page])
 
     @support_requests = @support_requests.open if params[:open].present?
     @support_requests = @support_requests.closed if params[:closed].present?
@@ -17,8 +17,7 @@ class SupportRequestsController < ApplicationController
     @dir = (dir == "desc") ? "asc" : "desc"
 
     # time_of_notifications =  SupportRequest.include(:users).where("request_type = 6")
-
-    @support_requests = @support_requests.includes(:user, :supporting_doc_blob).order(order_by)
+    @support_requests = @support_requests.includes(:supporting_doc_blob).order(order_by)
   end
 
   def search

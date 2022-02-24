@@ -145,14 +145,14 @@
             </thead>
 
             <tbody>
-                <% @user.assign_support_requests.each do |assign_requests| %>
-                    <tr>
-                    <td><%= assign_requests.id %></td>
-                    <td><%= assign_requests.support_request.id %></td>
-                    <td><%= assign_requests.support_request.status %></td>
-                    <td><%= link_to assign_requests.support_request.support_request_type.name, support_request_path(assign_requests.support_request) %></td>
-                    </tr>
-                <% end %>
+              <% @user.assign_support_requests.each do |assign_requests| %>
+                  <tr>
+                  <td><%= assign_requests.id %></td>
+                  <td><%= assign_requests.support_request_id %></td>
+                  <td><%= assign_requests.support_request&.status %></td>
+                  <td><%= link_to assign_requests.support_request&.support_request_type&.name, support_request_path(assign_requests.support_request_id) %></td>
+                  </tr>
+              <% end %>
             </tbody>
         </table>
     </div>
