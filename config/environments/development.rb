@@ -56,7 +56,7 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -74,7 +74,7 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-   
+
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
@@ -82,7 +82,7 @@ Rails.application.configure do
     # To overrider the location for message storage.
     # Default value is `tmp/letter_opener`
     lconfig.location = Rails.root.join('tmp', 'my_mails')
-  
+
     # To render only the message body, without any metadata or extra containers or styling.
     # Default value is `:default` that renders styled message with showing useful metadata.
     lconfig.message_template = :default
