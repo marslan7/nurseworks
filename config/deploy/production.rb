@@ -59,3 +59,9 @@ server "54.176.11.192", user: "ubuntu", roles: %w{app db web}
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+ set :ssh_options, {
+   keys: %w(~/Downloads/NurseWorks.pem),
+   forward_agent: false,
+   auth_methods: %w(publickey)
+ }

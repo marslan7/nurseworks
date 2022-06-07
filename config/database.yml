@@ -9,12 +9,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   username: root
-  password: password
-  socket: /var/lib/mysqld/mysqld.sock
-
-  host: localhost
-  # port: 3306
-
+  password: root
+  host: 127.0.0.1
+  port: 3306
+  pool: 30
   flags:
     - -COMPRESS
     - FOUND_ROWS
@@ -23,8 +21,7 @@ default: &default
 
 development:
   <<: *default
-#   database: NurseWorks_Staging
-  # database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
+  database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
 
 # Warning: The database defined as "test" will be erased and
@@ -36,11 +33,11 @@ test:
 
 staging:
   <<: *default
-  password: password
+  password: root1234
   database: NurseWorks_Staging
 
 
 production:
   <<: *default
-  password: password
+  password: root1234
   database: NurseWorks_Staging

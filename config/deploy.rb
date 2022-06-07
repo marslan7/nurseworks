@@ -2,16 +2,16 @@
 lock "~> 3.16.0"
 
 set :application, "NurseWorks"
-set :repo_url, "https://github.com/thimmaiah/NurseWorks-CareGiver-Portal.git"
+set :repo_url, "https://github.com/marslan7/nurseworks.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :branch, 'main'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/ubuntu/NurseWorks"
-set :ssh_options, forward_agent: :true 
-set :ssh_options, keys: "/home/thimmaiah/.ssh/NurseWorks.pem" 
+set :deploy_to, "/home/ubuntu/NurseWorkss"
+set :ssh_options, forward_agent: :true
+set :ssh_options, keys: "/Users/muhammadarslan/Downloads/NurseWorks.pem"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -57,10 +57,10 @@ namespace :deploy do
     on roles(:app) do
       rails_env = fetch(:rails_env)
       puts "Uploading .env files to #{release_path} #{rails_env}"
-      upload!("/data/work/NurseWorks/.env", "#{release_path}", recursive: false)
-      upload!("/data/work/NurseWorks/.env.local", "#{release_path}", recursive: false)
-      upload!("/data/work/NurseWorks/.env.staging", "#{release_path}", recursive: false) if rails_env == :staging
-      upload!("/data/work/NurseWorks/.env.production", "#{release_path}", recursive: false) if rails_env == :production      
+      upload!("/Users/muhammadarslan/Downloads/.env", "#{release_path}", recursive: false)
+      #upload!("/data/work/NurseWorks/.env.local", "#{release_path}", recursive: false)
+      #upload!("/data/work/NurseWorks/.env.staging", "#{release_path}", recursive: false) if rails_env == :staging
+      upload!("/Users/muhammadarslan/Downloads/.env.production", "#{release_path}", recursive: false) if rails_env == :production
     end
   end
 
@@ -80,7 +80,7 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-  
+
 end
 
 
